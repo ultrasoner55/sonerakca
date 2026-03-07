@@ -14,33 +14,81 @@
 <style>
 body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
-/* Sidebar Ayarı */
+/* Arka Plan Ayarı */
+body {
+  background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #000;
+  color: #ccc;
+}
+
+/* Sidebar (Masaüstü için) */
 .w3-sidebar {width: 120px;background: #222;position: fixed;height: 100%;z-index: 1;}
 
 /* Ana İçerik Sidebar Genişliği Kadar Sağa */
 #main {margin-left: 120px;}
 
-/* Dikey ve Yatay Hizalama Ayarı */
+/* Bölüm İçerikleri */
 .section-content {
-  padding-left: 80px;  /* Yatay: Başlıkları ok yönünde sağa ittik */
-  padding-right: 80px; 
-  padding-top: 100px;  /* Dikey: Menüye basınca başlıkların duracağı üst sınır (Eşitlendi) */
-  padding-bottom: 100px;
+  padding: 100px 80px;
   max-width: 1100px;
-  min-height: 100vh;   /* Her bölümün ekranı kaplamasını sağlar, böylece geçişler daha net olur */
+  min-height: 100vh;
 }
 
-/* Footer ve İkon Çizgi Temizliği */
+/* Footer Linkleri */
 footer a { text-decoration: none !important; color: inherit; }
 .social-icons a { margin-right: 20px; display: inline-block; }
 
+/* --- MOBİL UYUMLULUK (CRITICAL) --- */
 @media only screen and (max-width: 600px) {
-  #main {margin-left: 0}
-  .section-content { padding: 80px 30px; }
+  /* Yan menüyü gizle */
+  .w3-sidebar { display: none !important; }
+  
+  /* Üst menüyü görünür yap */
+  #mobile-nav { display: flex !important; }
+  
+  /* İçeriği tam genişlik yap */
+  #main { margin-left: 0 !important; }
+  
+  /* Mobil padding ayarı */
+  .section-content { padding: 80px 20px; }
+  
+  .w3-jumbo { font-size: 30px !important; }
 }
+
+/* Mobil Üst Menü Tasarımı */
+#mobile-nav {
+  display: none; /* Masaüstünde gizli */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  background: #222;
+  justify-content: space-around;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+#mobile-nav a {
+  padding: 15px 0;
+  text-align: center;
+  width: 33.33%;
+  text-decoration: none;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+#mobile-nav a:hover { background-color: #444; }
 </style>
 </head>
-<body class="w3-black">
+<body>
+
+<nav id="mobile-nav">
+  <a href="#"><i class="fa fa-home"></i><br>ANASAYFA</a>
+  <a href="#about"><i class="fa fa-user"></i><br>HAKKINDA</a>
+  <a href="#contact"><i class="fa fa-envelope"></i><br>İLETİŞİM</a>
+</nav>
 
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
   <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
@@ -59,37 +107,35 @@ footer a { text-decoration: none !important; color: inherit; }
 
 <div id="main">
   
-  <header class="w3-container w3-padding-32 w3-center w3-black" id="home" style="min-height:100vh; display:flex; flex-direction:column; justify-content:center;">
+  <header class="w3-container w3-padding-32 w3-center" id="home" style="min-height:100vh; display:flex; flex-direction:column; justify-content:center;">
     <h1 class="w3-jumbo">Ben, Soner Akça.</h1>
     <p>Grafik &amp; Web tasarım ve Bilgisayar programcısı. Tam anlamıyla #Atatürk ve #Galatasaray aşığı.</p>
   </header>
 
-  <div class="section-content w3-justify w3-text-grey" id="about">
+  <div class="section-content w3-justify" id="about">
     <h2 class="w3-text-light-grey">Soner Akça</h2>
-    <hr style="width:200px" class="w3-opacity">
-    <p><strong>Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur. Yazılım, web ve grafik tasarım alanlarında çalışan Soner, teknolojiyle iç içe bir üretim sürecini benimseyerek dijital dünyada yaratıcı ve işlevsel projeler geliştirmektedir. Modern web teknolojileri, kullanıcı deneyimi ve görsel tasarım konularına özel ilgi duyan Soner, projelerinde hem estetik hem de performansı ön planda tutar. Sürekli öğrenmeye ve kendini geliştirmeye önem veren bir yaklaşım benimseyerek yazılım dünyasındaki yenilikleri yakından takip eder. Disiplinli çalışma anlayışı ve üretme tutkusu, onu dijital alanda her zaman daha iyisini hedefleyen bir geliştirici haline getirmektedir. Bunun yanında teknolojiye olan merakı ve yaratıcı bakış açısı, yaptığı işlere farklı bir perspektif kazandırmaktadır.
-
-</strong></p>
+    <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
+    <p><strong>Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur. Yazılım, web ve grafik tasarım alanlarında çalışan Soner, teknolojiyle iç içe bir üretim sürecini benimseyerek dijital dünyada yaratıcı ve işlevsel projeler geliştirmektedir. Modern web teknolojileri, kullanıcı deneyimi ve görsel tasarım konularına özel ilgi duyan Soner, projelerinde hem estetik hem de performansı ön planda tutar. Sürekli öğrenmeye ve kendini geliştirmeye önem veren bir yaklaşım benimseyerek yazılım dünyasındaki yenilikleri yakından takip eder. Disiplinli çalışma anlayışı ve üretme tutkusu, onu dijital alanda her zaman daha iyisini hedefleyen bir geliştirici haline getirmektedir.</strong></p>
     
-    <h3 class="w3-padding-16 w3-text-light-grey">Tecrüberlim</h3>
+    <h3 class="w3-padding-16 w3-text-light-grey">Tecrübelerim</h3>
     <p class="w3-wide">Yazılım</p>
-    <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:55%"></div></div>
+    <div class="w3-grey"><div class="w3-white" style="height:28px;width:55%"></div></div>
     <p class="w3-wide">Web Tasarım</p>
-    <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:60%"></div></div>
+    <div class="w3-grey"><div class="w3-white" style="height:28px;width:60%"></div></div>
     <p class="w3-wide">Grafik Tasarım</p>
-    <div class="w3-white"><div class="w3-dark-grey" style="height:28px;width:85%"></div></div>
+    <div class="w3-grey"><div class="w3-white" style="height:28px;width:85%"></div></div>
   </div>
 
-  <div class="section-content w3-text-grey" id="contact">
+  <div class="section-content" id="contact">
     <h2 class="w3-text-light-grey">Bana Ulaşın</h2>
-    <hr style="width:200px" class="w3-opacity">
+    <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
     <div class="w3-section">
       <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Samsun, TR</p>
       <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> +905416417157</p>
       <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> ultrasoner55@hotmail.com</p>
     </div>
 
-    <footer class="w3-padding-64 w3-text-grey w3-xlarge">
+    <footer class="w3-padding-64 w3-xlarge">
       <div class="social-icons">
         <a href="https://facebook.com/ultrasoner55" target="_blank" rel="noopener noreferrer">
           <i class="fa fa-facebook-official w3-hover-opacity"></i></a>
