@@ -1,167 +1,39 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<title>Soner Akça | Yazılım & Tasarım</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Soner Akça | Yazılım & Tasarım</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
 
-<link rel="icon" type="image/png" href="favicon.png">
-
-<link rel="apple-touch-icon" href="favicon.png">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Soner Akça">
-  
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#000000">
-
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-
-/* Arka Plan Ayarı */
-body {
-  background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #000;
-  color: #ccc;
-}
-
-/* Sidebar (Masaüstü için) */
-.w3-sidebar {width: 120px;background: #222;position: fixed;height: 100%;z-index: 1;}
-
-/* Ana İçerik Sidebar Genişliği Kadar Sağa */
-#main {margin-left: 120px;}
-
-/* Bölüm İçerikleri */
-.section-content {
-  padding: 100px 80px;
-  max-width: 1100px;
-  min-height: 100vh;
-}
-
-/* Footer Linkleri */
-footer a { text-decoration: none !important; color: inherit; }
-.social-icons a { margin-right: 20px; display: inline-block; }
-
-/* --- MOBİL UYUMLULUK (CRITICAL) --- */
-@media only screen and (max-width: 600px) {
-  /* Yan menüyü gizle */
-  .w3-sidebar { display: none !important; }
-  
-  /* Üst menüyü görünür yap */
-  #mobile-nav { display: flex !important; }
-  
-  /* İçeriği tam genişlik yap */
-  #main { margin-left: 0 !important; }
-  
-  /* Mobil padding ayarı */
-  .section-content { padding: 80px 20px; }
-  
-  .w3-jumbo { font-size: 30px !important; }
-}
-
-/* Mobil Üst Menü Tasarımı */
-#mobile-nav {
-  display: none; /* Masaüstünde gizli */
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  background: #222;
-  justify-content: space-around;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-}
-
-#mobile-nav a {
-  padding: 15px 0;
-  text-align: center;
-  width: 33.33%;
-  text-decoration: none;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-#mobile-nav a:hover { background-color: #444; }
-</style>
-</head>
-<body>
-
-<nav id="mobile-nav">
-  <a href="#"><i class="fa fa-home"></i><br>ANASAYFA</a>
-  <a href="#about"><i class="fa fa-user"></i><br>HAKKINDA</a>
-  <a href="#contact"><i class="fa fa-envelope"></i><br>İLETİŞİM</a>
-</nav>
-
-<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
-    <i class="fa fa-home w3-xxlarge"></i>
-    <p><strong>ANASAYFA</strong></p>
-  </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-user w3-xxlarge"></i>
-    <p><strong>HAKKINDA</strong></p>
-  </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-envelope w3-xxlarge"></i>
-    <p><strong>İLETİŞİM</strong></p>
-  </a>
-</nav>
-
-<div id="main">
-  
-  <header class="w3-container w3-padding-32 w3-center" id="home" style="min-height:100vh; display:flex; flex-direction:column; justify-content:center;">
-    <h1 class="w3-jumbo">Ben, Soner Akça.</h1>
-    <p>Grafik &amp; Web tasarım ve Bilgisayar programcısı. Tam anlamıyla #Atatürk ve #Galatasaray aşığı.</p>
-  </header>
-
-  <div class="section-content w3-justify" id="about">
-    <h2 class="w3-text-light-grey">Soner Akça</h2>
-    <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
-    <p><strong>Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur. Yazılım, web ve grafik tasarım alanlarında çalışan Soner, teknolojiyle iç içe bir üretim sürecini benimseyerek dijital dünyada yaratıcı ve işlevsel projeler geliştirmektedir. Modern web teknolojileri, kullanıcı deneyimi ve görsel tasarım konularına özel ilgi duyan Soner, projelerinde hem estetik hem de performansı ön planda tutar. Sürekli öğrenmeye ve kendini geliştirmeye önem veren bir yaklaşım benimseyerek yazılım dünyasındaki yenilikleri yakından takip eder. Disiplinli çalışma anlayışı ve üretme tutkusu, onu dijital alanda her zaman daha iyisini hedefleyen bir geliştirici haline getirmektedir.</strong></p>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <h3 class="w3-padding-16 w3-text-light-grey">Tecrübelerim</h3>
-    <p class="w3-wide">Yazılım</p>
-    <div class="w3-grey"><div class="w3-white" style="height:28px;width:55%"></div></div>
-    <p class="w3-wide">Web Tasarım</p>
-    <div class="w3-grey"><div class="w3-white" style="height:28px;width:60%"></div></div>
-    <p class="w3-wide">Grafik Tasarım</p>
-    <div class="w3-grey"><div class="w3-white" style="height:28px;width:85%"></div></div>
-  </div>
+    <style>
+        body, h1, h2, h3, h4, h5, h6 { font-family: "Montserrat", sans-serif; }
+        body { background-color: #000; color: #ccc; margin: 0; }
 
-  <div class="section-content" id="contact">
-    <h2 class="w3-text-light-grey">Bana Ulaşın</h2>
-    <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
-    <div class="w3-section">
-      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Samsun, TR</p>
-      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> +905416417157</p>
-      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> ultrasoner55@hotmail.com</p>
-    </div>
+        /* Masaüstü Sidebar */
+        .w3-sidebar { width: 120px; background: #111; position: fixed; height: 100%; z-index: 1; }
+        #main { margin-left: 120px; }
 
-    <footer class="w3-padding-64 w3-xlarge">
-      <div class="social-icons">
-        <a href="https://facebook.com/ultrasoner55" target="_blank" rel="noopener noreferrer">
-          <i class="fa fa-facebook-official w3-hover-opacity"></i></a>
-        <a href="https://instagram.com/ultrasoner55" target="_blank" rel="noopener noreferrer">
-          <i class="fa fa-instagram w3-hover-opacity"></i></a>
-        <a href="https://twitter.com/ultrasoner55" target="_blank" rel="noopener noreferrer">
-          <i class="fa fa-twitter w3-hover-opacity"></i></a>
-        <a href="https://youtube.com/ultrasoner55" target="_blank" rel="noopener noreferrer">
-          <i class="fa fa-youtube-play w3-hover-opacity"></i></a>
-      </div>
-      <p class="w3-medium">Powered by <a href="https://github.com/ultrasoner55" target="_blank" class="w3-hover-text-green">ultrasoner</a></p>
-    </footer>
-  </div>
+        /* Bölüm Ayarları */
+        .section-content { padding: 100px 5%; max-width: 1100px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+        .skill-bar { height: 28px; background-color: #555; margin-bottom: 20px; }
+        .skill-per { height: 100%; background-color: #fff; }
 
-</div>
+        /* Mobil Navigasyon */
+        #mobile-nav { display: none; position: fixed; top: 0; width: 100%; z-index: 999; background: #111; justify-content: space-around; }
+        #mobile-nav a { padding: 15px; text-align: center; flex: 1; text-decoration: none; color: #fff; font-size: 11px; font-weight: bold; }
 
-</body>
-</html>
+        /* Footer & Sosyal Medya */
+        footer a { text-decoration: none; color: inherit; }
+        .social-icons a { margin-right: 20px; font-size: 24px; transition: 0.3s; }
+        .social-icons a:hover { opacity: 0.6; }
 
-
-
-
-
+        @media only screen and (max-width: 600px) {
+            .w3-sidebar { display: none !important; }
+            #mobile-nav { display: flex !important; }
+            #main { margin-left: 0 !important; }
+            .section-content
