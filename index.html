@@ -19,14 +19,19 @@
 <style>
 body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
-/* Arka Plan Görseli Kaldırıldı */
+/* --- ARKA PLAN AYARI --- */
 body {
-  background-color: #000; /* Sadece düz siyah arka plan bırakıldı */
+  /* background.jpg dosyasını arka plan yapar ve üzerine siyah bir katman atar */
+  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.jpg');
+  background-attachment: fixed; /* Sayfa kaysa da görsel sabit kalır */
+  background-size: cover;      /* Görsel ekranı tamamen kaplar */
+  background-position: center;  /* Görseli ortalar */
+  background-color: #000;      /* Görsel yüklenmezse siyah görünür */
   color: #ccc;
 }
 
 /* Sidebar (Masaüstü için) */
-.w3-sidebar {width: 120px;background: #222;position: fixed;height: 100%;z-index: 1;}
+.w3-sidebar {width: 120px;background: rgba(34, 34, 34, 0.9);position: fixed;height: 100%;z-index: 1;}
 
 /* Ana İçerik Sidebar Genişliği Kadar Sağa */
 #main {margin-left: 120px;}
@@ -42,7 +47,7 @@ body {
 footer a { text-decoration: none !important; color: inherit; }
 .social-icons a { margin-right: 20px; display: inline-block; }
 
-/* --- MOBİL UYUMLULUK (CRITICAL) --- */
+/* --- MOBİL UYUMLULUK --- */
 @media only screen and (max-width: 600px) {
   .w3-sidebar { display: none !important; }
   #mobile-nav { display: flex !important; }
