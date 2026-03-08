@@ -99,15 +99,15 @@ footer a { text-decoration: none !important; color: inherit; }
 </nav>
 
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large" id="link-home">
     <i class="fa fa-home w3-xxlarge"></i>
     <p><strong>ANASAYFA</strong></p>
   </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large">
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large" id="link-about">
     <i class="fa fa-user w3-xxlarge"></i>
     <p><strong>HAKKINDA</strong></p>
   </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large">
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" id="link-contact">
     <i class="fa fa-envelope w3-xxlarge"></i>
     <p><strong>İLETİŞİM</strong></p>
   </a>
@@ -163,31 +163,55 @@ footer a { text-decoration: none !important; color: inherit; }
     </footer>
   </div>
 </div>
+<style>
+  /* Mouse üzerine gelince grileşmeyi engelle ve simsiyah yap */
+  .w3-sidebar .w3-bar-item.w3-button:hover {
+    background-color: #000 !important; 
+    color: #fff !important;
+  }
+
+  /* Siyah butonun her zaman net beyaz yazıya sahip olmasını sağla */
+  .w3-black {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+</style>
+
 <script>
   function updateMenu() {
     var scrollPos = window.scrollY || document.documentElement.scrollTop;
     var navLinks = document.querySelectorAll('.w3-sidebar a');
+    
+    // Sayfadaki bölümlerin konumlarını al
+    var homePos = 0;
+    var aboutSection = document.getElementById('about');
+    var contactSection = document.getElementById('contact');
+
+    var aboutPos = aboutSection ? aboutSection.offsetTop : 0;
+    var contactPos = contactSection ? contactSection.offsetTop : 0;
+
     var sections = [
-      { id: 'home', top: 0 },
-      { id: 'about', top: document.getElementById('about').offsetTop },
-      { id: 'contact', top: document.getElementById('contact').offsetTop }
+      { id: 'home', top: homePos },
+      { id: 'about', top: aboutPos },
+      { id: 'contact', top: contactPos }
     ];
 
-    // Önce tüm butonlardan siyahlığı ve beyaz yazıyı sıfırla
+    // 1. Önce tüm butonlardan w3-black sınıfını temizle
     navLinks.forEach(link => link.classList.remove('w3-black'));
 
-    // Hangi bölümde olduğumuzu bul (Hassaslık payı: 200px)
+    // 2. Mevcut scroll konumuna göre hangi bölümde olduğumuzu bul
     let currentId = 'home';
     sections.forEach(section => {
-      if (scrollPos >= section.top - 200) {
+      // 250px hassasiyet payı (bölüme tam gelmeden buton değişir)
+      if (scrollPos >= section.top - 250) {
         currentId = section.id;
       }
     });
 
-    // İlgili butona siyahlığı ekle
+    // 3. Bulunan bölüme karşılık gelen butona w3-black ekle
     navLinks.forEach(link => {
       const href = link.getAttribute('href');
-      if (href === '#' && currentId === 'home') {
+      if ((href === '#' || href === '#home') && currentId === 'home') {
         link.classList.add('w3-black');
       } else if (href === '#' + currentId) {
         link.classList.add('w3-black');
@@ -195,28 +219,21 @@ footer a { text-decoration: none !important; color: inherit; }
     });
   }
 
-  // Olayları tanımla
-  window.onscroll = updateMenu;
-  window.onload = updateMenu;
+  // Olay Dinleyicileri
+  window.addEventListener('scroll', updateMenu);
+  window.addEventListener('load', updateMenu); // F5 atınca çalışması için
 
-  // Tıklanınca yumuşak geçiş için (CSS'de scroll-behavior: smooth yoksa işe yarar)
+  // Butonlara tıklandığında anında tepki ver
   document.querySelectorAll('.w3-sidebar a').forEach(link => {
-    link.addEventListener('click', () => setTimeout(updateMenu, 100));
+    link.addEventListener('click', function() {
+      // Küçük bir gecikmeyle (kaydırma bitince) menüyü güncelle
+      setTimeout(updateMenu, 100);
+    });
   });
-  /* Menü butonlarının üzerine gelince grileşmesini tamamen engelle */
-.w3-sidebar .w3-bar-item.w3-button:hover {
-  background-color: #000 !important; /* Arka plan hep siyah kalsın */
-  color: #fff !important;            /* Yazı/İkon hep beyaz kalsın */
-}
-
-/* Aktif (siyah) butonun stilini sabitle */
-.w3-black, .w3-hover-black:hover {
-  background-color: #000 !important;
-  color: #fff !important;
-}
 </script>
 </body>
 </html>
+
 
 
 
