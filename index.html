@@ -33,7 +33,7 @@ body {
 /* Sidebar (Masaüstü için) */
 .w3-sidebar {width: 120px;background: rgba(34, 34, 34, 0.9);position: fixed;height: 100%;z-index: 1;}
 
-/* Butonların Hover Durumunda Tam Siyah Olması İçin Yeni Kısım */
+/* Butonların Hover Durumunda Tam Siyah Olması (İstediğin Düzenleme) */
 .w3-sidebar .w3-bar-item.w3-button:hover {
   background-color: #000 !important;
   color: #fff !important;
@@ -51,57 +51,4 @@ body {
 
 /* Footer Linkleri */
 footer a { text-decoration: none !important; color: inherit; }
-.social-icons a { margin-right: 20px; display: inline-block; }
-
-/* --- MOBİL UYUMLULUK --- */
-@media only screen and (max-width: 600px) {
-  .w3-sidebar { display: none !important; }
-  #mobile-nav { display: flex !important; }
-  #main { margin-left: 0 !important; }
-  .section-content { padding: 80px 20px; }
-  .w3-jumbo { font-size: 30px !important; }
-}
-
-/* Mobil Üst Menü Tasarımı */
-#mobile-nav {
-  display: none;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  background: #222;
-  justify-content: space-around;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-}
-
-#mobile-nav a {
-  padding: 15px 0;
-  text-align: center;
-  width: 33.33%;
-  text-decoration: none;
-  color: white;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-#mobile-nav a:hover { background-color: #000 !important; }
-</style>
-</head>
-<body>
-
-<nav id="mobile-nav">
-  <a href="#"><i class="fa fa-home"></i><br>ANASAYFA</a>
-  <a href="#about"><i class="fa fa-user"></i><br>HAKKINDA</a>
-  <a href="#contact"><i class="fa fa-envelope"></i><br>İLETİŞİM</a>
-</nav>
-
-<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
-    <i class="fa fa-home w3-xxlarge"></i>
-    <p><strong>ANASAYFA</strong></p>
-  </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-user w3-xxlarge"></i>
-    <p><strong>HAKKINDA</strong></p>
-  </a>
-  <a href="#contact" class="w3-
+.social-icons a { margin-right: 20px; display
