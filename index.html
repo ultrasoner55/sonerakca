@@ -99,15 +99,15 @@ footer a { text-decoration: none !important; color: inherit; }
 </nav>
 
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <a href="#" id="nav-home" class="w3-bar-item w3-button w3-padding-large w3-black w3-text-white">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black w3-text-white">
     <i class="fa fa-home w3-xxlarge"></i>
     <p><strong>ANASAYFA</strong></p>
   </a>
-  <a href="#about" id="nav-about" class="w3-bar-item w3-button w3-padding-large w3-text-white w3-hover-black">
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-text-white w3-hover-black">
     <i class="fa fa-user w3-xxlarge"></i>
     <p><strong>HAKKINDA</strong></p>
   </a>
-  <a href="#contact" id="nav-contact" class="w3-bar-item w3-button w3-padding-large w3-text-white w3-hover-black">
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-text-white w3-hover-black">
     <i class="fa fa-envelope w3-xxlarge"></i>
     <p><strong>İLETİŞİM</strong></p>
   </a>
@@ -164,51 +164,49 @@ footer a { text-decoration: none !important; color: inherit; }
   </div>
 </div>
 <script>
-  function activeMenu() {
-    // Tüm butonları seç
-    const navLinks = document.querySelectorAll('.w3-sidebar a, #mobile-nav a');
-    const scrollPos = window.scrollY || document.documentElement.scrollTop;
+  function updateMenu() {
+    var scrollPos = window.scrollY || document.documentElement.scrollTop;
+    var navLinks = document.querySelectorAll('.w3-sidebar a');
+    var sections = [
+      { id: 'home', top: 0 },
+      { id: 'about', top: document.getElementById('about').offsetTop },
+      { id: 'contact', top: document.getElementById('contact').offsetTop }
+    ];
 
-    // Önce hepsinden siyahlığı kaldır
-    navLinks.forEach(link => {
-      link.classList.remove('w3-black');
+    // Önce tüm butonlardan siyahlığı ve beyaz yazıyı sıfırla
+    navLinks.forEach(link => link.classList.remove('w3-black'));
+
+    // Hangi bölümde olduğumuzu bul (Hassaslık payı: 200px)
+    let currentId = 'home';
+    sections.forEach(section => {
+      if (scrollPos >= section.top - 200) {
+        currentId = section.id;
+      }
     });
 
-    // 1. Sayfa en tepedeyse (F5 durumu)
-    if (scrollPos < 150) {
-      if(navLinks[0]) navLinks[0].classList.add('w3-black');
-      return;
-    }
-
-    // 2. Kaydırdıkça bölümleri kontrol et
-    const sections = ['about', 'contact'];
-    sections.forEach(id => {
-      const section = document.getElementById(id);
-      if (section) {
-        const top = section.offsetTop - 200;
-        const bottom = top + section.offsetHeight;
-
-        if (scrollPos >= top && scrollPos < bottom) {
-          const activeLink = document.querySelector(`a[href="#${id}"]`);
-          if (activeLink) activeLink.classList.add('w3-black');
-        }
+    // İlgili butona siyahlığı ekle
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === '#' && currentId === 'home') {
+        link.classList.add('w3-black');
+      } else if (href === '#' + currentId) {
+        link.classList.add('w3-black');
       }
     });
   }
 
-  // Olayları bağla
-  window.addEventListener('scroll', activeMenu);
-  window.addEventListener('load', activeMenu); // F5 atıldığında çalışması için kritik satır
+  // Olayları tanımla
+  window.onscroll = updateMenu;
+  window.onload = updateMenu;
 
-  // Tıklanınca anında boya
+  // Tıklanınca yumuşak geçiş için (CSS'de scroll-behavior: smooth yoksa işe yarar)
   document.querySelectorAll('.w3-sidebar a').forEach(link => {
-    link.addEventListener('click', function() {
-      setTimeout(activeMenu, 50);
-    });
+    link.addEventListener('click', () => setTimeout(updateMenu, 100));
   });
 </script>
 </body>
 </html>
+
 
 
 
