@@ -17,6 +17,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+  /* Tıklanan veya odaklanan butonun siyah kalması için */
+.w3-sidebar .w3-bar-item:focus,
+.w3-sidebar .w3-bar-item:active {
+  background-color: #000 !important;
+  color: #fff !important;
+}
 body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
 /* --- ARKA PLAN AYARI --- */
@@ -155,8 +161,23 @@ footer a { text-decoration: none !important; color: inherit; }
     </footer>
   </div>
 </div>
+<script>
+  // Sidebar butonlarını seç
+  var links = document.querySelectorAll('.w3-sidebar a');
 
+  links.forEach(function(link) {
+    link.addEventListener('click', function() {
+      // Önce hepsinden siyah rengi kaldır
+      links.forEach(function(l) {
+        l.classList.remove('w3-black');
+      });
+      // Sadece tıklanan butona siyah renk ekle
+      this.classList.add('w3-black');
+    });
+  });
+</script>
 </body>
 </html>
+
 
 
