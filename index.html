@@ -21,12 +21,11 @@ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
 /* --- ARKA PLAN AYARI --- */
 body {
-  /* background.jpg dosyasını arka plan yapar ve üzerine siyah bir katman atar */
   background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.jpg');
-  background-attachment: fixed; /* Sayfa kaysa da görsel sabit kalır */
-  background-size: cover;      /* Görsel ekranı tamamen kaplar */
-  background-position: center;  /* Görseli ortalar */
-  background-color: #000;      /* Görsel yüklenmezse siyah görünür */
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-color: #000;
   color: #ccc;
 }
 
@@ -46,6 +45,17 @@ body {
 /* Footer Linkleri */
 footer a { text-decoration: none !important; color: inherit; }
 .social-icons a { margin-right: 20px; display: inline-block; }
+
+/* GitHub Ikon Ayarı */
+.github-icon {
+    fill: #ccc; /* Sayfanın genel yazı rengiyle uyumlu */
+    transition: fill 0.3s;
+    vertical-align: middle; /* Metinle aynı hizaya getirir */
+    margin-right: 5px;
+}
+.w3-hover-text-green:hover .github-icon {
+    fill: #4CAF50; /* Yeşil renge (w3-hover-text-green) uyumlu hover */
+}
 
 /* --- MOBİL UYUMLULUK --- */
 @media only screen and (max-width: 600px) {
@@ -112,45 +122,4 @@ footer a { text-decoration: none !important; color: inherit; }
   </header>
 
   <div class="section-content w3-justify" id="about">
-    <h2 class="w3-text-light-grey">Soner Akça</h2>
-    <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
-    <p><strong>Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur. Yazılım, web ve grafik tasarım alanlarında çalışan Soner, teknolojiyle iç içe bir üretim sürecini benimseyerek dijital dünyada yaratıcı ve işlevsel projeler geliştirmektedir. Modern web teknolojileri, kullanıcı deneyimi ve görsel tasarım konularına özel ilgi duyan Soner, projelerinde hem estetik hem de performansı ön planda tutar. Sürekli öğrenmeye ve kendini geliştirmeye önem veren bir yaklaşım benimseyerek yazılım dünyasındaki yenilikleri yakından takip eder. Disiplinli çalışma anlayışı ve üretme tutkusu, onu dijital alanda her zaman daha iyisini hedefleyen bir geliştirici haline getirmektedir.</strong></p>
-    
-    <h3 class="w3-padding-16 w3-text-light-grey">Tecrübelerim</h3>
-    <p class="w3-wide">Yazılım</p>
-    <div class="w3-grey"><div class="w3-white" style="height:28px;width:55%"></div></div>
-    <p class="w3-wide">Web Tasarım</p>
-    <div class="w3-grey"><div class="w3-white" style="height:28px;width:60%"></div></div>
-    <p class="w3-wide">Grafik Tasarım</p>
-    <div class="w3-grey"><div class="w3-white" style="height:28px;width:85%"></div></div>
-  </div>
-
-  <div class="section-content" id="contact">
-    <h2 class="w3-text-light-grey">Bana Ulaşın</h2>
-    <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
-    <div class="w3-section">
-      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Samsun, TR</p>
-      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> +905416417157</p>
-      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> ultrasoner55@hotmail.com</p>
-    </div>
-
-    <footer class="w3-padding-64 w3-xlarge">
-      <div class="social-icons">
-        <a href="https://facebook.com/ultrasoner55" target="_blank" rel="noopener noreferrer">
-          <i class="fa fa-facebook-official w3-hover-opacity"></i></a>
-        <a href="https://instagram.com/ultrasoner55" target="_blank" rel="noopener noreferrer">
-          <i class="fa fa-instagram w3-hover-opacity"></i></a>
-        <a href="https://twitter.com/ultrasoner55" target="_blank" rel="noopener noreferrer">
-          <i class="fa fa-twitter w3-hover-opacity"></i></a>
-        <a href="https://youtube.com/ultrasoner55" target="_blank" rel="noopener noreferrer">
-          <i class="fa fa-youtube-play w3-hover-opacity"></i></a>
-      </div>
-      <p class="w3-medium">Powered by <a href="https://github.com/ultrasoner55" target="_blank" class="w3-hover-text-green">ultrasoner</a></p>
-    </footer>
-  </div>
-
-</div>
-
-</body>
-</html>
-
+    <h2 class="w3-text-light-grey">
