@@ -19,21 +19,33 @@
 <style>
 body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
-/* --- ARKA PLAN AYARI --- */
+/* --- ARKA PLAN VE ANA RENKLER --- */
 body {
-  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.jpg');
+  /* Arka planı biraz daha kararttım ki beyaz/gri yazılar net seçilsin */
+  background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('background.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   background-color: #000;
-  color: #ccc;
+  color: #f1f1f1 !important; /* Yazıları daha belirgin beyaz yaptım */
+  margin: 0;
 }
 
 /* Sidebar (Masaüstü için) */
-.w3-sidebar {width: 120px;background: rgba(34, 34, 34, 0.9);position: fixed;height: 100%;z-index: 1;}
+.w3-sidebar {
+    width: 120px;
+    background: #111; /* Şeffaflığı kaldırdım ki menü net görünsün */
+    position: fixed;
+    height: 100%;
+    z-index: 10;
+}
 
-/* Ana İçerik Sidebar Genişliği Kadar Sağa */
-#main {margin-left: 120px;}
+/* Ana İçerik */
+#main {
+    margin-left: 120px;
+    position: relative;
+    z-index: 5;
+}
 
 /* Bölüm İçerikleri */
 .section-content {
@@ -42,19 +54,25 @@ body {
   min-height: 100vh;
 }
 
-/* Footer Linkleri */
-footer a { text-decoration: none !important; color: inherit; }
-.social-icons a { margin-right: 20px; display: inline-block; }
+/* Yazıların görünürlüğünü zorla (Force Visibility) */
+h1, h2, h3, p, i {
+    color: #fff !important; 
+    opacity: 1 !important;
+}
+
+/* Footer ve Sosyal İkonlar */
+footer a { text-decoration: none !important; color: #ccc !important; }
+.social-icons a { margin-right: 20px; display: inline-block; font-size: 24px; }
 
 /* GitHub Ikon Ayarı */
 .github-icon {
-    fill: #ccc; /* Sayfanın genel yazı rengiyle uyumlu */
+    fill: #fff; 
     transition: fill 0.3s;
-    vertical-align: middle; /* Metinle aynı hizaya getirir */
-    margin-right: 5px;
+    vertical-align: middle;
+    margin-right: 8px;
 }
 .w3-hover-text-green:hover .github-icon {
-    fill: #4CAF50; /* Yeşil renge (w3-hover-text-green) uyumlu hover */
+    fill: #4CAF50;
 }
 
 /* --- MOBİL UYUMLULUK --- */
@@ -62,11 +80,11 @@ footer a { text-decoration: none !important; color: inherit; }
   .w3-sidebar { display: none !important; }
   #mobile-nav { display: flex !important; }
   #main { margin-left: 0 !important; }
-  .section-content { padding: 80px 20px; }
-  .w3-jumbo { font-size: 30px !important; }
+  .section-content { padding: 100px 20px; }
+  .w3-jumbo { font-size: 35px !important; }
 }
 
-/* Mobil Üst Menü Tasarımı */
+/* Mobil Üst Menü */
 #mobile-nav {
   display: none;
   position: fixed;
@@ -75,7 +93,7 @@ footer a { text-decoration: none !important; color: inherit; }
   z-index: 999;
   background: #222;
   justify-content: space-around;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.7);
 }
 
 #mobile-nav a {
@@ -83,12 +101,10 @@ footer a { text-decoration: none !important; color: inherit; }
   text-align: center;
   width: 33.33%;
   text-decoration: none;
-  color: white;
-  font-size: 12px;
+  color: white !important;
+  font-size: 11px;
   font-weight: bold;
 }
-
-#mobile-nav a:hover { background-color: #444; }
 </style>
 </head>
 <body>
@@ -116,10 +132,4 @@ footer a { text-decoration: none !important; color: inherit; }
 
 <div id="main">
   
-  <header class="w3-container w3-padding-32 w3-center" id="home" style="min-height:100vh; display:flex; flex-direction:column; justify-content:center;">
-    <h1 class="w3-jumbo">Ben, Soner Akça.</h1>
-    <p>computer programmer & software developer</p>
-  </header>
-
-  <div class="section-content w3-justify" id="about">
-    <h2 class="w3-text-light-grey">
+  <header class="w3-container w3-padding-32 w3-center" id="home" style="min-height:10
