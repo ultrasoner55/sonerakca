@@ -99,7 +99,7 @@ footer a { text-decoration: none !important; color: inherit; }
 </nav>
 
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">
     <i class="fa fa-home w3-xxlarge"></i>
     <p><strong>ANASAYFA</strong></p>
   </a>
@@ -178,25 +178,27 @@ footer a { text-decoration: none !important; color: inherit; }
       this.classList.add('w3-black');
     });
   });
-</script>
-  <script>
-  // Sayfa kaydırıldığında çalışacak fonksiyon
   window.onscroll = function() {
     var scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
-    // Bölümleri ve menü linklerini tanımlayalım
     var sections = ['home', 'about', 'contact'];
     var navLinks = document.querySelectorAll('.w3-sidebar a, #mobile-nav a');
+
+    // Eğer sayfa en tepedeyse (0-100 piksel arası) sadece Anasayfayı siyah yap
+    if (scrollPos < 100) {
+      navLinks.forEach(l => l.classList.remove('w3-black'));
+      // İlk butonu (Anasayfa) bul ve siyah yap
+      navLinks[0].classList.add('w3-black');
+      return; // Diğer kontrollere bakma
+    }
 
     sections.forEach(function(id) {
       var section = document.getElementById(id);
       if (section) {
-        // Eğer bölüm şu an ekrandaysa (ufak bir pay bırakarak: 100px)
-        if (scrollPos >= section.offsetTop - 100 && scrollPos < section.offsetTop + section.offsetHeight - 100) {
+        // Bölümün içinde miyiz kontrolü
+        if (scrollPos >= section.offsetTop - 150 && scrollPos < section.offsetTop + section.offsetHeight - 150) {
           navLinks.forEach(function(link) {
-            // Önce tüm linklerden siyahlığı kaldır
             link.classList.remove('w3-black');
-            // Sadece o bölüme giden linke siyahlık ekle
-            if (link.getAttribute('href') === '#' + id || (id === 'home' && link.getAttribute('href') === '#')) {
+            if (link.getAttribute('href') === '#' + id) {
               link.classList.add('w3-black');
             }
           });
@@ -207,6 +209,7 @@ footer a { text-decoration: none !important; color: inherit; }
 </script>
 </body>
 </html>
+
 
 
 
