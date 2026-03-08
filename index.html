@@ -103,11 +103,11 @@ footer a { text-decoration: none !important; color: inherit; }
     <i class="fa fa-home w3-xxlarge"></i>
     <p><strong>ANASAYFA</strong></p>
   </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-text-white w3-hover-black">
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-text-white">
     <i class="fa fa-user w3-xxlarge"></i>
     <p><strong>HAKKINDA</strong></p>
   </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-text-white w3-hover-black">
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-text-white">
     <i class="fa fa-envelope w3-xxlarge"></i>
     <p><strong>İLETİŞİM</strong></p>
   </a>
@@ -203,9 +203,20 @@ footer a { text-decoration: none !important; color: inherit; }
   document.querySelectorAll('.w3-sidebar a').forEach(link => {
     link.addEventListener('click', () => setTimeout(updateMenu, 100));
   });
+  /* Butonların üzerine gelince veya aktifken grileşmesini engelle */
+.w3-sidebar a.w3-button:hover {
+  background-color: #000 !important; /* Üzerine gelince tam siyah kal */
+  color: #fff !important;            /* Yazı tam beyaz kal */
+}
+
+.w3-sidebar a.w3-black {
+  background-color: #000 !important;
+  color: #fff !important;
+}
 </script>
 </body>
 </html>
+
 
 
 
