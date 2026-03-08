@@ -99,15 +99,15 @@ footer a { text-decoration: none !important; color: inherit; }
 </nav>
 
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black w3-text-white">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
     <i class="fa fa-home w3-xxlarge"></i>
     <p><strong>ANASAYFA</strong></p>
   </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-text-white w3-hover-black">
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large">
     <i class="fa fa-user w3-xxlarge"></i>
     <p><strong>HAKKINDA</strong></p>
   </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-text-white w3-hover-black">
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large">
     <i class="fa fa-envelope w3-xxlarge"></i>
     <p><strong>İLETİŞİM</strong></p>
   </a>
@@ -203,9 +203,21 @@ footer a { text-decoration: none !important; color: inherit; }
   document.querySelectorAll('.w3-sidebar a').forEach(link => {
     link.addEventListener('click', () => setTimeout(updateMenu, 100));
   });
+  /* Menü butonlarının üzerine gelince grileşmesini tamamen engelle */
+.w3-sidebar .w3-bar-item.w3-button:hover {
+  background-color: #000 !important; /* Arka plan hep siyah kalsın */
+  color: #fff !important;            /* Yazı/İkon hep beyaz kalsın */
+}
+
+/* Aktif (siyah) butonun stilini sabitle */
+.w3-black, .w3-hover-black:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+}
 </script>
 </body>
 </html>
+
 
 
 
