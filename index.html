@@ -99,15 +99,15 @@ footer a { text-decoration: none !important; color: inherit; }
 </nav>
 
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+  <a href="#" id="nav-home" class="w3-bar-item w3-button w3-padding-large w3-black w3-text-white">
     <i class="fa fa-home w3-xxlarge"></i>
     <p><strong>ANASAYFA</strong></p>
   </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+  <a href="#about" id="nav-about" class="w3-bar-item w3-button w3-padding-large w3-text-white w3-hover-black">
     <i class="fa fa-user w3-xxlarge"></i>
     <p><strong>HAKKINDA</strong></p>
   </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+  <a href="#contact" id="nav-contact" class="w3-bar-item w3-button w3-padding-large w3-text-white w3-hover-black">
     <i class="fa fa-envelope w3-xxlarge"></i>
     <p><strong>İLETİŞİM</strong></p>
   </a>
@@ -166,45 +166,51 @@ footer a { text-decoration: none !important; color: inherit; }
 </div>
 <script>
   function activeMenu() {
+    // Tüm butonları seç
     const navLinks = document.querySelectorAll('.w3-sidebar a, #mobile-nav a');
-    const sections = ['home', 'about', 'contact'];
-    let scrollPos = window.scrollY || document.documentElement.scrollTop;
+    const scrollPos = window.scrollY || document.documentElement.scrollTop;
 
-    // Tüm siyahlıkları temizle
-    navLinks.forEach(l => l.classList.remove('w3-black'));
+    // Önce hepsinden siyahlığı kaldır
+    navLinks.forEach(link => {
+      link.classList.remove('w3-black');
+    });
 
-    // Eğer sayfa en tepedeyse (0-100px arası)
-    if (scrollPos < 100) {
+    // 1. Sayfa en tepedeyse (F5 durumu)
+    if (scrollPos < 150) {
       if(navLinks[0]) navLinks[0].classList.add('w3-black');
       return;
     }
 
-    // Kaydırma durumunda bölümleri kontrol et
-    sections.forEach((id) => {
+    // 2. Kaydırdıkça bölümleri kontrol et
+    const sections = ['about', 'contact'];
+    sections.forEach(id => {
       const section = document.getElementById(id);
       if (section) {
-        if (scrollPos >= section.offsetTop - 200 && scrollPos < section.offsetTop + section.offsetHeight - 200) {
-          navLinks.forEach((link) => {
-            if (link.getAttribute('href') === '#' + id) {
-              link.classList.add('w3-black');
-            }
-          });
+        const top = section.offsetTop - 200;
+        const bottom = top + section.offsetHeight;
+
+        if (scrollPos >= top && scrollPos < bottom) {
+          const activeLink = document.querySelector(`a[href="#${id}"]`);
+          if (activeLink) activeLink.classList.add('w3-black');
         }
       }
     });
   }
 
-  // Olayları dinle
+  // Olayları bağla
   window.addEventListener('scroll', activeMenu);
-  window.addEventListener('load', activeMenu);
-  
-  // Tıklama sonrası ufak bir gecikmeyle kontrol et
-  document.querySelectorAll('.w3-sidebar a, #mobile-nav a').forEach(link => {
-    link.addEventListener('click', () => setTimeout(activeMenu, 100));
+  window.addEventListener('load', activeMenu); // F5 atıldığında çalışması için kritik satır
+
+  // Tıklanınca anında boya
+  document.querySelectorAll('.w3-sidebar a').forEach(link => {
+    link.addEventListener('click', function() {
+      setTimeout(activeMenu, 50);
+    });
   });
 </script>
 </body>
 </html>
+
 
 
 
