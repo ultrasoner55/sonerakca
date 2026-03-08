@@ -177,12 +177,27 @@ footer a { text-decoration: none !important; color: inherit; }
   }
 </style>
 
+<style>
+  /* Menü butonlarının üzerine gelince grileşmesini hem mobilde hem masaüstünde engelle */
+  .w3-sidebar a:hover, #mobile-nav a:hover {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+
+  /* Aktif olan (siyah) butonun stilini her zaman sabit tut */
+  .w3-black {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+</style>
+
 <script>
   function updateMenu() {
     var scrollPos = window.scrollY || document.documentElement.scrollTop;
-    var navLinks = document.querySelectorAll('.w3-sidebar a');
     
-    // Sayfadaki bölümlerin konumlarını al
+    // DÜZENLEME: Hem sidebar (masaüstü) hem de mobile-nav (mobil) linklerini seçiyoruz
+    var navLinks = document.querySelectorAll('.w3-sidebar a, #mobile-nav a');
+    
     var homePos = 0;
     var aboutSection = document.getElementById('about');
     var contactSection = document.getElementById('contact');
@@ -196,19 +211,19 @@ footer a { text-decoration: none !important; color: inherit; }
       { id: 'contact', top: contactPos }
     ];
 
-    // 1. Önce tüm butonlardan w3-black sınıfını temizle
+    // 1. Tüm butonlardan (mobil dahil) w3-black sınıfını temizle
     navLinks.forEach(link => link.classList.remove('w3-black'));
 
     // 2. Mevcut scroll konumuna göre hangi bölümde olduğumuzu bul
     let currentId = 'home';
     sections.forEach(section => {
-      // 250px hassasiyet payı (bölüme tam gelmeden buton değişir)
-      if (scrollPos >= section.top - 250) {
+      // Hassasiyet payı (Mobilde daha iyi sonuç için 280px idealdir)
+      if (scrollPos >= section.top - 280) {
         currentId = section.id;
       }
     });
 
-    // 3. Bulunan bölüme karşılık gelen butona w3-black ekle
+    // 3. Bulunan bölüme karşılık gelen TÜM butonları (Masaüstü + Mobil) siyah yap
     navLinks.forEach(link => {
       const href = link.getAttribute('href');
       if ((href === '#' || href === '#home') && currentId === 'home') {
@@ -221,18 +236,18 @@ footer a { text-decoration: none !important; color: inherit; }
 
   // Olay Dinleyicileri
   window.addEventListener('scroll', updateMenu);
-  window.addEventListener('load', updateMenu); // F5 atınca çalışması için
+  window.addEventListener('load', updateMenu);
 
-  // Butonlara tıklandığında anında tepki ver
-  document.querySelectorAll('.w3-sidebar a').forEach(link => {
+  // Tıklanan butonu anında boya (Mobil ve Masaüstü tüm linkler için)
+  document.querySelectorAll('.w3-sidebar a, #mobile-nav a').forEach(link => {
     link.addEventListener('click', function() {
-      // Küçük bir gecikmeyle (kaydırma bitince) menüyü güncelle
-      setTimeout(updateMenu, 100);
+      setTimeout(updateMenu, 150);
     });
   });
 </script>
 </body>
 </html>
+
 
 
 
