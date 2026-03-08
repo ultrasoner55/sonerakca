@@ -23,6 +23,9 @@
   background-color: #000 !important;
   color: #fff !important;
 }
+  html {
+  scroll-behavior: smooth;
+}
 body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
 /* --- ARKA PLAN AYARI --- */
@@ -176,8 +179,35 @@ footer a { text-decoration: none !important; color: inherit; }
     });
   });
 </script>
+  <script>
+  // Sayfa kaydırıldığında çalışacak fonksiyon
+  window.onscroll = function() {
+    var scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+    // Bölümleri ve menü linklerini tanımlayalım
+    var sections = ['home', 'about', 'contact'];
+    var navLinks = document.querySelectorAll('.w3-sidebar a, #mobile-nav a');
+
+    sections.forEach(function(id) {
+      var section = document.getElementById(id);
+      if (section) {
+        // Eğer bölüm şu an ekrandaysa (ufak bir pay bırakarak: 100px)
+        if (scrollPos >= section.offsetTop - 100 && scrollPos < section.offsetTop + section.offsetHeight - 100) {
+          navLinks.forEach(function(link) {
+            // Önce tüm linklerden siyahlığı kaldır
+            link.classList.remove('w3-black');
+            // Sadece o bölüme giden linke siyahlık ekle
+            if (link.getAttribute('href') === '#' + id || (id === 'home' && link.getAttribute('href') === '#')) {
+              link.classList.add('w3-black');
+            }
+          });
+        }
+      }
+    });
+  };
+</script>
 </body>
 </html>
+
 
 
 
