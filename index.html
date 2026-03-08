@@ -4,51 +4,65 @@
 <title>Soner Akça | Yazılım & Tasarım</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Soner Akça">
-
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#000000">
-
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
-/* --- ARKA PLAN AYARI --- */
+/* --- ARKA PLAN VE GÖRÜNÜRLÜK --- */
 body {
-  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('background.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   background-color: #000;
-  color: #ccc;
+  color: #fff !important; /* Yazıları zorla beyaz yapıyoruz */
   margin: 0;
 }
 
-/* Sidebar (Masaüstü için) */
-.w3-sidebar {width: 120px;background: rgba(34, 34, 34, 0.9);position: fixed;height: 100%;z-index: 1;}
+/* Sidebar Ayarları */
+.w3-sidebar {
+  width: 120px;
+  background: rgba(17, 17, 17, 0.95);
+  position: fixed;
+  height: 100%;
+  z-index: 999; /* En üstte durmasını sağlar */
+}
 
-/* Butonların Hover Durumunda Tam Siyah Olması (İstediğin Düzenleme) */
+/* İletişim Butonu Siyah Hover (İstediğin Ayar) */
 .w3-sidebar .w3-bar-item.w3-button:hover {
   background-color: #000 !important;
   color: #fff !important;
 }
 
-/* Ana İçerik Sidebar Genişliği Kadar Sağa */
-#main {margin-left: 120px;}
-
-/* Bölüm İçerikleri */
-.section-content {
-  padding: 100px 80px;
-  max-width: 1100px;
-  min-height: 100vh;
+/* Ana İçerik */
+#main {
+  margin-left: 120px;
+  position: relative;
+  z-index: 10;
 }
 
-/* Footer Linkleri */
-footer a { text-decoration: none !important; color: inherit; }
-.social-icons a { margin-right: 20px; display
+.section-content {
+  padding: 80px 40px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Yazıların Görünmeme Sorunu İçin Fix */
+h1, h2, h3, p, i {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Sosyal Medya */
+footer a { text-decoration: none !important; color: #ccc; }
+.social-icons a { margin-right: 20px; display: inline-block; font-size: 24px; }
+
+@media only screen and (max-width: 600px) {
+  .w3-sidebar { display: none !important; }
+  #main { margin-left: 0 !important; }
+  #mobile-nav { display: flex !important; }
