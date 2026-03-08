@@ -165,30 +165,27 @@ footer a { text-decoration: none !important; color: inherit; }
   </div>
 </div>
 <script>
-  // Menü linklerini ve bölümleri değişkenlere atayalım
-  const navLinks = document.querySelectorAll('.w3-sidebar a, #mobile-nav a');
-  const sections = ['home', 'about', 'contact'];
-
   function activeMenu() {
+    const navLinks = document.querySelectorAll('.w3-sidebar a, #mobile-nav a');
+    const sections = ['home', 'about', 'contact'];
     let scrollPos = window.scrollY || document.documentElement.scrollTop;
 
-    // 1. Durum: Sayfa en tepedeyse (F5 atıldığında veya manuel çıkıldığında)
+    // Tüm siyahlıkları temizle
+    navLinks.forEach(l => l.classList.remove('w3-black'));
+
+    // Eğer sayfa en tepedeyse (0-100px arası)
     if (scrollPos < 100) {
-      navLinks.forEach(l => l.classList.remove('w3-black'));
-      // İlk linki (Anasayfa) zorla siyah yap
       if(navLinks[0]) navLinks[0].classList.add('w3-black');
       return;
     }
 
-    // 2. Durum: Kaydırma yapıldığında bölümleri kontrol et
+    // Kaydırma durumunda bölümleri kontrol et
     sections.forEach((id) => {
       const section = document.getElementById(id);
       if (section) {
-        // Bölümün ekrandaki yerini hesapla (150px pay bırakıyoruz)
-        if (scrollPos >= section.offsetTop - 150 && scrollPos < section.offsetTop + section.offsetHeight - 150) {
+        if (scrollPos >= section.offsetTop - 200 && scrollPos < section.offsetTop + section.offsetHeight - 200) {
           navLinks.forEach((link) => {
-            link.classList.remove('w3-black');
-            if (link.getAttribute('href') === '#' + id || (id === 'home' && link.getAttribute('href') === '#')) {
+            if (link.getAttribute('href') === '#' + id) {
               link.classList.add('w3-black');
             }
           });
@@ -197,21 +194,18 @@ footer a { text-decoration: none !important; color: inherit; }
     });
   }
 
-  // SAYFA YÜKLENDİĞİNDE ÇALIŞTIR (F5 Çözümü)
-  window.addEventListener('load', activeMenu);
-
-  // KAYDIRMA YAPILDIĞINDA ÇALIŞTIR
+  // Olayları dinle
   window.addEventListener('scroll', activeMenu);
-
-  // TIKLANDIĞINDA ANINDA TEPKİ VER
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      setTimeout(activeMenu, 50); 
-    });
+  window.addEventListener('load', activeMenu);
+  
+  // Tıklama sonrası ufak bir gecikmeyle kontrol et
+  document.querySelectorAll('.w3-sidebar a, #mobile-nav a').forEach(link => {
+    link.addEventListener('click', () => setTimeout(activeMenu, 100));
   });
 </script>
 </body>
 </html>
+
 
 
 
