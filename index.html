@@ -165,50 +165,48 @@ footer a { text-decoration: none !important; color: inherit; }
   </div>
 </div>
 <script>
-  // Sidebar butonlarını seç
-  var links = document.querySelectorAll('.w3-sidebar a');
-
-  links.forEach(function(link) {
-    link.addEventListener('click', function() {
-      // Önce hepsinden siyah rengi kaldır
-      links.forEach(function(l) {
-        l.classList.remove('w3-black');
-      });
-      // Sadece tıklanan butona siyah renk ekle
-      this.classList.add('w3-black');
-    });
-  });
-  window.onscroll = function() {
+  // Kaydırma ve Renk Değiştirme Fonksiyonu
+  function activeMenu() {
     var scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
     var sections = ['home', 'about', 'contact'];
     var navLinks = document.querySelectorAll('.w3-sidebar a, #mobile-nav a');
 
-    // Eğer sayfa en tepedeyse (0-100 piksel arası) sadece Anasayfayı siyah yap
+    // Sayfa en tepedeyse veya henüz kaydırılmadıysa
     if (scrollPos < 100) {
       navLinks.forEach(l => l.classList.remove('w3-black'));
-      // İlk butonu (Anasayfa) bul ve siyah yap
-      navLinks[0].classList.add('w3-black');
-      return; // Diğer kontrollere bakma
+      if(navLinks[0]) navLinks[0].classList.add('w3-black');
+      return;
     }
 
     sections.forEach(function(id) {
       var section = document.getElementById(id);
       if (section) {
-        // Bölümün içinde miyiz kontrolü
-        if (scrollPos >= section.offsetTop - 150 && scrollPos < section.offsetTop + section.offsetHeight - 150) {
+        if (scrollPos >= section.offsetTop - 160 && scrollPos < section.offsetTop + section.offsetHeight - 160) {
           navLinks.forEach(function(link) {
             link.classList.remove('w3-black');
-            if (link.getAttribute('href') === '#' + id) {
+            if (link.getAttribute('href') === '#' + id || (id === 'home' && link.getAttribute('href') === '#')) {
               link.classList.add('w3-black');
             }
           });
         }
       }
     });
-  };
+  }
+
+  // Olayları Bağla
+  window.onscroll = activeMenu; // Kaydırdıkça çalış
+  window.onload = activeMenu;   // Sayfa ilk açıldığında (F5) çalış
+
+  // Tıklama olayını da ekleyelim (Anında tepki için)
+  document.querySelectorAll('.w3-sidebar a, #mobile-nav a').forEach(link => {
+    link.addEventListener('click', function() {
+      setTimeout(activeMenu, 100); // Tıklamadan hemen sonra kontrol et
+    });
+  });
 </script>
 </body>
 </html>
+
 
 
 
