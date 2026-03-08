@@ -1,6 +1,6 @@
 # Ben, Soner Akça.
 
-Grafik & Web tasarım ve Bilgisayar programcısı. Tam anlamıyla #Atatürk ve #Galatasaray aşığı.
+computer programmer & software developer
 
 
 ## Soner Akça
