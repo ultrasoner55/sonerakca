@@ -1,0 +1,93 @@
+/* style.css */
+html { scroll-behavior: smooth; }
+body, h1, h2, h3, h4, h5, h6 { font-family: "Montserrat", sans-serif; }
+
+/* --- ARKA PLAN VE SIDEBAR DENGESİ --- */
+body {
+    background-color: #000;
+    color: #ccc;
+    margin: 0;
+    overflow-x: hidden;
+    /* Masaüstünde Hello World'ü tam merkeze almak için 60px sağa kaydırma */
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: calc(50% + 60px) center;
+}
+
+/* Masaüstü Sidebar */
+.w3-sidebar {
+    width: 120px;
+    background: rgba(34, 34, 34, 0.9);
+    position: fixed;
+    height: 100%;
+    z-index: 10;
+}
+
+#main { margin-left: 120px; }
+
+.section-content {
+    padding: 100px 80px;
+    max-width: 1100px;
+    margin: auto;
+    min-height: 100vh;
+}
+
+/* --- ANA SAYFA: HELLO WORLD HİZALAMA --- */
+header#home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.header-title { margin-bottom: 70px !important; transform: translateY(-15px); }
+.header-subtitle { margin-top: 70px !important; transform: translateY(15px); font-weight: bold; letter-spacing: 2px; }
+
+/* --- FOOTER: MUTLAK ORTALAMA --- */
+.absolute-center-footer {
+    width: 100%;
+    /* Sidebar genişliğini (120px) hesaba katarak tam ekranın ortasına çeker */
+    margin-left: -120px; 
+    padding: 64px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icons a { margin: 0 15px; color: inherit; text-decoration: none; transition: 0.3s; }
+.social-icons a:hover { color: #9e9e9e !important; }
+
+/* Aktif Menü ve Hover Durumları */
+.w3-black, .w3-sidebar a:hover, #mobile-nav a:hover {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+/* --- MOBİL AYARLAR --- */
+@media only screen and (max-width: 600px) {
+    body { background-position: center center; }
+    .w3-sidebar { display: none !important; }
+    #mobile-nav { display: flex !important; }
+    #main { margin-left: 0 !important; }
+    .section-content { padding: 80px 20px; }
+    .w3-jumbo { font-size: 35px !important; }
+    .absolute-center-footer { margin-left: 0 !important; }
+    .header-title { margin-bottom: 45px !important; }
+    .header-subtitle { margin-top: 45px !important; }
+}
+
+#mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background: #222;
+    justify-content: space-around;
+}
+
+#mobile-nav a { padding: 15px 0; text-align: center; width: 33.33%; color: white; font-size: 12px; font-weight: bold; }
