@@ -133,20 +133,20 @@ footer a { text-decoration: none !important; color: inherit; }
     <div class="w3-grey"><div class="w3-white" style="height:28px;width:85%"></div></div>
   </div>
 
-  <div class="section-content" id="contact">
+ <div class="section-content" id="contact">
     <h2 class="w3-text-light-grey">Bana Ulaşın</h2>
     <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
+    
     <div class="w3-section">
       
       <p>
-        <a href="https://www.google.com/maps/search/?api=1&query=Samsun" target="_blank" class="w3-hover-text-grey" style="text-decoration: none; color: inherit; transition: 0.3s;">
+        <a href="https://goo.gl/maps/xyz" target="_blank" class="w3-hover-text-grey" style="text-decoration: none; color: inherit; transition: 0.3s;">
           <i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Samsun, TR
         </a>
       </p>
 
       <p>
-        <a href="https://sonerakca.short.gy/whatsapp" 
-           onclick="otoMesajTetikle()" 
+        <a href="https://ultrasoner55.short.gy/whatsapp" 
            target="_blank" 
            class="w3-hover-text-grey" 
            style="text-decoration: none; color: inherit; transition: 0.3s;">
@@ -160,25 +160,8 @@ footer a { text-decoration: none !important; color: inherit; }
         </a>
       </p>
 
-      <script>
-      function otoMesajTetikle() {
-          // Senin güncellediğin Google Script URL'si
-          const scriptURL = "https://script.google.com/macros/s/AKfycbwclJRrZnpjUSJj8_RE9epmonPiS5y6kru_YM70oj-11GA_p7PZgbNgzfaqqmlF6sHZ/exec";
-          
-          // Mesajın gideceği senin numaran (Başına 9 koymayı unutma)
-          const hedefNumara = "905416417157"; 
-
-          fetch(scriptURL, {
-              method: 'POST',
-              mode: 'no-cors', 
-              body: JSON.stringify({"telefon": hedefNumara})
-          })
-          .then(() => console.log("Otomatik mesaj tetiklendi!"))
-          .catch(err => console.error("Hata:", err));
-      }
-      </script>
-
     </div>
+</div>
 </div>
     
     <footer class="w3-padding-64 w3-xlarge">
@@ -286,6 +269,7 @@ footer a { text-decoration: none !important; color: inherit; }
 </script>
 </body>
 </html>
+
 
 
 
