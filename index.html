@@ -137,47 +137,49 @@ footer a { text-decoration: none !important; color: inherit; }
     <h2 class="w3-text-light-grey">Bana Ulaşın</h2>
     <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
     <div class="w3-section">
+      
       <p>
-  <a href="https://www.google.com/maps/search/?api=1&query=Samsun" target="_blank" class="w3-hover-text-grey" style="text-decoration: none; color: inherit; transition: 0.3s;">
-    <i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Samsun, TR
-  </a>
-</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Samsun" target="_blank" class="w3-hover-text-grey" style="text-decoration: none; color: inherit; transition: 0.3s;">
+          <i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Samsun, TR
+        </a>
+      </p>
 
-<p>
-  <a href="https://sonerakca.short.gy/whatsapp" 
-     onclick="otoMesajTetikle()" 
-     target="_blank" 
-     class="w3-hover-text-grey" 
-     style="text-decoration: none; color: inherit; transition: 0.3s;">
-    <i class="fa fa-whatsapp fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Bana WhatsApp'tan ulaşın
-  </a>
-</p>
+      <p>
+        <a href="https://sonerakca.short.gy/whatsapp" 
+           onclick="otoMesajTetikle()" 
+           target="_blank" 
+           class="w3-hover-text-grey" 
+           style="text-decoration: none; color: inherit; transition: 0.3s;">
+          <i class="fa fa-whatsapp fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Bana WhatsApp'tan ulaşın
+        </a>
+      </p>
 
-<p>
-  <a href="mailto:ultrasoner55@hotmail.com" class="w3-hover-text-grey" style="text-decoration: none; color: inherit; transition: 0.3s;">
-    <i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Buradan mail gönderebilirsiniz
-  </a>
-</p>
+      <p>
+        <a href="mailto:ultrasoner55@hotmail.com" class="w3-hover-text-grey" style="text-decoration: none; color: inherit; transition: 0.3s;">
+          <i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Buradan mail gönderebilirsiniz
+        </a>
+      </p>
 
-<script>
-function otoMesajTetikle() {
-    // Senin verdiğin motor linki
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxSWzFPQg1Q0Djvn53RDZ8PxAsyq-9M-HACC4bxM2ypOZg8zimbFbHL6B0sj8bdOOYC/exec";
-    
-    // BURAYI DÜZENLE: Mesajın kime gideceğini buraya yaz (Format: 905xxxxxxxxx)
-    // Şu an Meta panelinde onayladığın kendi numaranı yazmalısın.
-    const hedefNumara = "905XXXXXXXXX"; 
+      <script>
+      function otoMesajTetikle() {
+          // Senin güncellediğin Google Script URL'si
+          const scriptURL = "https://script.google.com/macros/s/AKfycbywNQprJi09LGSI2CXSeN_79Q0gK9OJ9KwCW2BJCx4zsMVtz-CQDuaQnW4nxcmdOrV4/exec";
+          
+          // Mesajın gideceği senin numaran (Başına 9 koymayı unutma)
+          const hedefNumara = "905416417157"; 
 
-    fetch(scriptURL, {
-        method: 'POST',
-        mode: 'no-cors', 
-        body: JSON.stringify({"telefon": hedefNumara})
-    })
-    .then(() => console.log("Otomatik mesaj komutu gönderildi!"))
-    .catch(err => console.error("Hata:", err));
-}
-</script>
+          fetch(scriptURL, {
+              method: 'POST',
+              mode: 'no-cors', 
+              body: JSON.stringify({"telefon": hedefNumara})
+          })
+          .then(() => console.log("Otomatik mesaj tetiklendi!"))
+          .catch(err => console.error("Hata:", err));
+      }
+      </script>
+
     </div>
+</div>
     
     <footer class="w3-padding-64 w3-xlarge">
       <div class="social-icons">
@@ -284,6 +286,7 @@ function otoMesajTetikle() {
 </script>
 </body>
 </html>
+
 
 
 
