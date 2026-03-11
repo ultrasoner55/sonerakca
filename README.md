@@ -3,6 +3,7 @@
 computer programmer & software developer
 
 
+
 ## Soner Akça
 
 Soner Akça, 1992’de Samsun Bafra’da doğmuş; yazılım, web ve grafik tasarım alanlarında çalışan bir geliştiricidir. Modern web teknolojileri, kullanıcı deneyimi ve görsel tasarıma odaklanarak estetik ve performansı bir araya getiren projeler üretir.
@@ -16,10 +17,11 @@ Tecrübelerim
 ・Grafik Tasarım
 
 
+
 ## Bana Ulaşın
 
-⚲ Samsun, TR
+✉︎ Sorularınız için mail bırakın
 
-🕻 +905416417157
+🕻 Hızlı cevap için WhatsApp
 
-✉︎ ultrasoner55@hotmail.com
+⚲ Samsun, Türkiye
