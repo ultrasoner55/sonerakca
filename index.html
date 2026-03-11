@@ -7,73 +7,204 @@
 
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Soner Akça">
-
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#000000">
-
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
   html { scroll-behavior: smooth; }
   body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
-  /* --- ARKA PLAN AYARLARI --- */
+  /* --- GENEL ARKA PLAN VE SIDEBAR AYARI --- */
   body {
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.png');
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: calc(50% + 60px) center; /* Masaüstünde sidebar'ı dengeler */
     background-color: #000;
     color: #ccc;
     margin: 0;
-    overflow-x: hidden;
+    /* Masaüstünde arkaplanı sidebar genişliğinin yarısı kadar (60px) sağa kaydırıyoruz */
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: calc(50% + 60px) center; 
   }
 
-  /* Sidebar (Masaüstü) */
-  .w3-sidebar {width: 120px;background: rgba(34, 34, 34, 0.9);position: fixed;height: 100%;z-index: 10;}
-  #main {margin-left: 120px; position: relative; z-index: 1;}
+  /* Sidebar Genişliği */
+  .w3-sidebar {
+    width: 120px;
+    background: #222;
+    position: fixed;
+    height: 100%;
+    z-index: 5;
+  }
+
+  /* Ana İçerik Alanı */
+  #main {
+    margin-left: 120px;
+  }
 
   .section-content {
-    padding: 100px 80px;
-    max-width: 1100px;
+    padding: 64px 32px;
+    max-width: 1000px;
     margin: auto;
     min-height: 100vh;
   }
 
-  /* GİRİŞ METNİ HİZALAMA (Hello World Dostu) */
+  /* --- 1. GÖRSEL: HELLO WORLD VE METİN HİZALAMA --- */
   header#home {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
   }
-  .header-title { margin-bottom: 60px; transform: translateY(-10px); }
-  .header-subtitle { margin-top: 60px; transform: translateY(10px); font-weight: bold; letter-spacing: 2px; }
 
-  /* FOOTER MUTLAK ORTALAMA */
-  .absolute-center-footer {
-    width: 100vw; /* Tüm ekran genişliği */
-    margin-left: -120px; /* Sidebar kaymasını geri çeker */
-    padding: 64px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  /* "Ben, Soner Akça" yazısını Hello World'ün üstüne taşıyoruz */
+  .header-title {
+    margin-bottom: 70px !important; 
+    transform: translateY(-20px);
+  }
+
+  /* Sloganı Hello World'ün altına taşıyoruz */
+  .header-subtitle {
+    margin-top: 70px !important;
+    transform: translateY(20px);
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  /* --- 2. GÖRSEL: FOOTER MUTLAK ORTA --- */
+  footer {
+    padding: 80px 0;
+    width: 100%;
+    /* Sidebar (120px) olsa bile tüm ekranın tam ortasına çekmek için */
+    margin-left: -60px; 
     text-align: center;
   }
 
-  /* Linkler ve Sosyal Medya */
-  a { text-decoration: none !important; transition: 0.3s; color: inherit; }
-  .social-icons a { margin: 0 15px; display: inline-block; }
-  .social-icons a:hover { color: #9e9e9e !important; }
+  .social-icons a {
+    margin: 0 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+  }
 
-  /* Aktif Menü Rengi */
+  .social-icons a:hover { color: #9e9e9e; }
+
+  /* Aktif Menü Butonu */
   .w3-black { background-color: #000 !important; color: #fff !important; }
 
-  /* --- MOBİL UYUMLULUK --- */
-  @media only screen and (max-width: 6
+  /* --- MOBİL AYARLAR --- */
+  @media only screen and (max-width: 600px) {
+    body { background-position: center center; } /* Mobilde arkaplanı orijinaline al */
+    .w3-sidebar { display: none; }
+    #mobile-nav { display: flex !important; }
+    #main { margin-left: 0 !important; }
+    footer { margin-left: 0 !important; }
+    .header-title { margin-bottom: 45px !important; }
+    .header-subtitle { margin-top: 45px !important; }
+  }
+
+  #mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background: #222;
+    justify-content: space-around;
+  }
+  #mobile-nav a { padding: 15px 0; color: white; text-decoration: none; font-size: 12px; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<nav id="mobile-nav">
+  <a href="#"><i class="fa fa-home"></i><br>HOME</a>
+  <a href="#about"><i class="fa fa-user"></i><br>ABOUT</a>
+  <a href="#contact"><i class="fa fa-envelope"></i><br>CONTACT</a>
+</nav>
+
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large" id="nav-home">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>HOME</p>
+  </a>
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large" id="nav-about">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p>ABOUT</p>
+  </a>
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" id="nav-contact">
+    <i class="fa fa-envelope w3-xxlarge"></i>
+    <p>CONTACT</p>
+  </a>
+</nav>
+
+<div id="main">
+
+  <header class="w3-container" id="home">
+    <h1 class="w3-jumbo header-title">Ben, Soner Akça.</h1>
+    <p class="header-subtitle">computer programmer & software developer</p>
+  </header>
+
+  <div class="section-content w3-justify" id="about">
+    <h2 class="w3-text-light-grey">Soner Akça</h2>
+    <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
+    <p><strong>Soner Akça, 1992’de Samsun Bafra’da doğmuş; yazılım, web ve grafik tasarım alanlarında çalışan bir geliştiricidir...</strong></p>
+    
+    <h3 class="w3-padding-16 w3-text-light-grey">Tecrübelerim</h3>
+    <p class="w3-wide">Yazılım</p>
+    <div class="w3-grey"><div class="w3-white" style="height:28px;width:55%"></div></div>
+    <p class="w3-wide">Web Tasarım</p>
+    <div class="w3-grey"><div class="w3-white" style="height:28px;width:60%"></div></div>
+    <p class="w3-wide">Grafik Tasarım</p>
+    <div class="w3-grey"><div class="w3-white" style="height:28px;width:85%"></div></div>
+  </div>
+
+  <div class="section-content" id="contact">
+    <h2 class="w3-text-light-grey">Bana Ulaşın</h2>
+    <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
+
+    <div class="w3-section">
+      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Samsun, TR</p>
+      <p><i class="fa fa-whatsapp fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> +905416417157</p>
+      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> hello@sonerakca.com</p>
+    </div>
+
+    <footer class="w3-content w3-center">
+      <div class="social-icons">
+        <a href="https://facebook.com/ultrasoner55" target="_blank"><i class="fa fa-facebook-official w3-xlarge"></i></a>
+        <a href="https://instagram.com/ultrasoner55" target="_blank"><i class="fa fa-instagram w3-xlarge"></i></a>
+        <a href="https://twitter.com/ultrasoner55" target="_blank"><i class="fa fa-twitter w3-xlarge"></i></a>
+        <a href="https://youtube.com/ultrasoner55" target="_blank"><i class="fa fa-youtube-play w3-xlarge"></i></a>
+      </div>
+      <p class="w3-medium" style="margin-top:20px;">
+        Powered by <a href="https://github.com/ultrasoner55" target="_blank" style="text-decoration:none; color:white;"><strong>GitHub</strong></a>
+      </p>
+    </footer>
+  </div>
+
+</div>
+
+<script>
+  // Menü Kaydırma ve Aktiflik Ayarı
+  window.onscroll = function() {
+    var scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+    var navLinks = document.querySelectorAll('.w3-sidebar a, #mobile-nav a');
+    
+    var aboutPos = document.getElementById('about').offsetTop - 300;
+    var contactPos = document.getElementById('contact').offsetTop - 300;
+
+    navLinks.forEach(link => link.classList.remove('w3-black'));
+
+    if (scrollPos >= contactPos) {
+      document.querySelectorAll('a[href="#contact"]').forEach(a => a.classList.add('w3-black'));
+    } else if (scrollPos >= aboutPos) {
+      document.querySelectorAll('a[href="#about"]').forEach(a => a.classList.add('w3-black'));
+    } else {
+      document.querySelectorAll('a[href="#"], a[href="#home"]').forEach(a => a.classList.add('w3-black'));
+    }
+  };
+</script>
+
+</body>
+</html>
