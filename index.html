@@ -52,7 +52,14 @@ body {
   min-height: 100vh;
 }
 
-/* --- SOSYAL MEDYA VE İLETİŞİM İKONLARI YENİ AYARLAR --- */
+/* --- YETENEK BARLARI ANİMASYONU --- */
+.progress-bar {
+  width: 0; /* Başlangıçta 0 */
+  height: 28px;
+  transition: width 1.5s cubic-bezier(0.1, 0.5, 0.5, 1); /* Yumuşak doluş efekti */
+}
+
+/* --- SOSYAL MEDYA VE İLETİŞİM İKONLARI --- */
 .social-icons a, .contact-links a { 
   text-decoration: none !important; 
   color: inherit; 
@@ -60,16 +67,14 @@ body {
   display: inline-block;
 }
 
-/* İkon boyutlarını küçülttük */
 .social-icons i, .contact-links i {
-  font-size: 24px !important; /* İkonları zarifleştirdik */
+  font-size: 24px !important;
   width: 35px;
   text-align: center;
 }
 
 .social-icons a { margin-right: 15px; }
 
-/* Hover Efektleri */
 .social-icons a:hover, .contact-links a:hover { 
   color: #9e9e9e !important; 
   transform: translateY(-3px); 
@@ -84,7 +89,6 @@ body {
   .w3-jumbo { font-size: 30px !important; }
 }
 
-/* Mobil Üst Menü Tasarımı */
 #mobile-nav {
   display: none;
   position: fixed;
@@ -108,13 +112,11 @@ body {
 
 #mobile-nav a:hover { background-color: #444; }
 
-/* Menü butonlarının üzerine gelince grileşmesini engelle */
 .w3-sidebar a:hover, #mobile-nav a:hover {
   background-color: #000 !important;
   color: #fff !important;
 }
 
-/* Aktif olan (siyah) butonun stilini sabit tut */
 .w3-black {
   background-color: #000 !important;
   color: #fff !important;
@@ -160,11 +162,11 @@ body {
     
     <h3 class="w3-padding-16 w3-text-light-grey">Tecrübelerim</h3>
     <p class="w3-wide">Yazılım</p>
-    <div class="w3-grey"><div class="w3-white" style="height:28px;width:55%"></div></div>
+    <div class="w3-grey"><div class="w3-white progress-bar" data-width="55%"></div></div>
     <p class="w3-wide">Web Tasarım</p>
-    <div class="w3-grey"><div class="w3-white" style="height:28px;width:60%"></div></div>
+    <div class="w3-grey"><div class="w3-white progress-bar" data-width="60%"></div></div>
     <p class="w3-wide">Grafik Tasarım</p>
-    <div class="w3-grey"><div class="w3-white" style="height:28px;width:85%"></div></div>
+    <div class="w3-grey"><div class="w3-white progress-bar" data-width="85%"></div></div>
   </div>
 
   <div class="section-content" id="contact">
@@ -248,8 +250,28 @@ body {
     });
   }
 
+  // --- YENİ: YETENEK BARLARINI İZLEYEN VE DOLDURAN FONKSİYON ---
+  function observeBars() {
+    const bars = document.querySelectorAll('.progress-bar');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bar = entry.target;
+          const width = bar.getAttribute('data-width');
+          bar.style.width = width;
+          observer.unobserve(bar); // Bir kere dolunca izlemeyi bırak
+        }
+      });
+    }, { threshold: 0.5 }); // Barın yarısı göründüğünde başla
+
+    bars.forEach(bar => observer.observe(bar));
+  }
+
   window.addEventListener('scroll', updateMenu);
-  window.addEventListener('load', updateMenu);
+  window.addEventListener('load', () => {
+    updateMenu();
+    observeBars(); // Sayfa yüklenince izleyiciyi başlat
+  });
 
   document.querySelectorAll('.w3-sidebar a, #mobile-nav a').forEach(link => {
     link.addEventListener('click', function() {
