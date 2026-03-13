@@ -1,43 +1,51 @@
-/* Genel Ayarlar ve Arka Plan */
+/* GENEL AYARLAR */
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
-    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('background.png') fixed center/cover #000;
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('background.png') fixed center/cover #000;
     color: #ccc;
     font-family: "Montserrat", sans-serif;
     margin: 0;
+    line-height: 1.6;
 }
 
-/* Sidebar Ayarları */
-.w3-sidebar { width: 120px; background: rgba(34, 34, 34, 0.9); position: fixed; height: 100%; z-index: 1; border-right: 1px solid #333; }
+/* SIDEBAR (MASAÜSTÜ) */
+.w3-sidebar { 
+    width: 120px; 
+    background: rgba(15, 15, 15, 0.95); 
+    position: fixed; 
+    height: 100%; 
+    z-index: 100; 
+    border-right: 1px solid #222; 
+}
 #main { margin-left: 120px; }
 
-/* SEKME ÜZERİNE GELİNCE GRİLEŞMEYİ ENGELLEME */
+/* SEKME HOVER (GRİLEŞME ENGELLENDİ) */
 .w3-bar-item.w3-button:hover {
     background-color: transparent !important;
     color: #fff !important;
+    opacity: 0.8;
 }
 
-/* İçerik Bölümleri */
-.section-content { padding: 80px 10%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
-
-/* SOSYAL MEDYA İKONLARI VE ARALARI */
-.social-icons { margin: 25px 0; display: flex; gap: 25px; } /* Gap ile araları açtık */
-.social-icons a { text-decoration: none; color: #fff; transition: 0.3s; font-size: 28px; }
-.social-icons a:hover { transform: translateY(-5px); color: #9e9e9e !important; }
-
-/* GITHUB LOGOSU VE FOOTER YAZISI */
-.footer-text { margin-top: 30px; font-size: 14px; color: #888; border-top: 1px solid #333; padding-top: 20px; }
-.footer-text a { color: #fff; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 8px; }
-.footer-text a:hover { color: #ccc; }
-
-/* Mobil Uyumluluk */
-@media only screen and (max-width: 600px) {
-    .w3-sidebar { display: none !important; }
-    #mobile-nav { display: flex !important; background: #111; position: fixed; top: 0; width: 100%; z-index: 999; justify-content: space-around; }
-    #main { margin-left: 0 !important; }
-    .section-content { padding: 100px 20px; }
-    #mobile-nav a { color: #fff; padding: 15px; text-decoration: none; font-size: 11px; text-align: center; }
+/* İÇERİK ALANLARI */
+.section-content { 
+    padding: 60px 10%; 
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
 }
 
-#mobile-nav { display: none; }
-.progress-bar { height: 28px; background-color: #fff; width: 0; transition: width 1.5s ease; }
+/* SOSYAL MEDYA İKONLARI (ARALARI DÜZELTİLDİ) */
+.social-icons { 
+    margin: 30px 0; 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 30px; /* İkonlar arası boşluk */
+}
+.social-icons a { 
+    text-decoration: none; 
+    color: #fff !important; 
+    font-size: 28px; 
+    transition: transform 0.3s ease;
+}
+.social-icons a:hover { transform: scale(1.2); }
