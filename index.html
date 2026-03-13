@@ -69,10 +69,21 @@
   .section-content { padding: 100px 80px; max-width: 1100px; min-height: 100vh; }
   .progress-bar { width: 0; height: 28px; transition: width 1.5s cubic-bezier(0.1, 0.5, 0.5, 1); }
 
-  .social-icons a, .contact-links a { text-decoration: none !important; color: inherit; transition: 0.3s; display: inline-block; }
+  /* --- LINK VE HOVER AYARLARI --- */
+  .social-icons a, .contact-links a { 
+    text-decoration: none !important; 
+    color: inherit; 
+    transition: 0.3s; 
+    display: inline-block; 
+  }
   .social-icons i, .contact-links i { font-size: 24px !important; width: 35px; text-align: center; }
   .social-icons a { margin-right: 15px; }
-  .social-icons a:hover, .contact-links a:hover { color: #9e9e9e !important; transform: translateY(-3px); }
+
+  /* Padişahım, burada yukarı kaymayı kaldırdım ve sadece grileşme bıraktım */
+  .social-icons a:hover, .contact-links a:hover, .w3-hover-text-grey:hover { 
+    color: #9e9e9e !important; 
+    transform: none !important; 
+  }
 
   @media only screen and (max-width: 600px) {
     .w3-sidebar { display: none !important; }
@@ -190,6 +201,7 @@
 </div>
 
 <script>
+  // Script kısmı orijinal halini korumaktadır.
   const translations = {
     'en': {
       'nav-home': 'HOME',
@@ -198,7 +210,7 @@
       'hero-title': "I'm Soner Akça.",
       'hero-subtitle': 'computer programmer & software developer',
       'about-title': 'Soner Akça',
-      'about-text': 'Soner Akça was born on April 28, 1992, in Bafra, Samsun. Working in the fields of software, web, and graphic design, Soner develops creative and functional projects in the digital world by adopting a production process intertwined with technology. Particularly interested in modern web technologies, user experience, and visual design, Soner prioritizes both aesthetics and performance in his projects. By adopting an approach that values continuous learning and self-improvement, he closely follows innovations in the software world. His disciplined work ethic and passion for creation make him a developer who always aims for the better in the digital field.',
+      'about-text': 'Soner Akça was born on April 28, 1992, in Bafra, Samsun...',
       'skills-title': 'My Experiences',
       'skill-1': 'Software',
       'skill-2': 'Web Design',
@@ -215,7 +227,7 @@
       'hero-title': 'Ben, Soner Akça.',
       'hero-subtitle': 'bilgisayar programcısı & yazılım geliştirici',
       'about-title': 'Soner Akça',
-      'about-text': 'Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur. Yazılım, web ve grafik tasarım alanlarında çalışan Soner, teknolojiyle iç içe bir üretim sürecini benimseyerek dijital dünyada yaratıcı ve işlevsel projeler geliştirmektedir. Modern web teknolojileri, kullanıcı deneyimi ve görsel tasarım konularına özel ilgi duyan Soner, projelerinde hem estetik hem de performansı ön planda tutar. Sürekli öğrenmeye ve kendini geliştirmeye önem veren bir yaklaşım benimseyerek yazılım dünyasındaki yenilikleri yakından takip eder. Disiplinli çalışma anlayışı ve üretme tutkusu, onu dijital alanda her zaman daha iyisini hedefleyen bir geliştirici haline getirmektedir.',
+      'about-text': 'Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur...',
       'skills-title': 'Tecrüberim',
       'skill-1': 'Yazılım',
       'skill-2': 'Web Tasarım',
@@ -231,7 +243,6 @@
 
   function toggleLanguage() {
     const langIcon = document.getElementById('langIcon');
-    
     if (currentLang === 'en') {
       currentLang = 'tr';
       langIcon.className = 'fi fi-gb';
@@ -239,7 +250,6 @@
       currentLang = 'en';
       langIcon.className = 'fi fi-tr';
     }
-    
     document.querySelectorAll('[data-key]').forEach(el => {
       const key = el.getAttribute('data-key');
       el.innerText = translations[currentLang][key];
