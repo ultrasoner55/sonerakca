@@ -29,23 +29,50 @@
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 1000;
+    z-index: 1001; /* Diğer her şeyin üstünde */
     cursor: pointer;
     width: 50px;
     height: 50px;
-    background: rgba(34, 34, 34, 0.8);
+    background: rgba(34, 34, 34, 0.9);
     border: 2px solid #fff;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.2s;
     touch-action: manipulation;
   }
   #lang-toggle:active { transform: scale(0.9); }
-  #lang-toggle img { width: 30px; height: 30px; object-fit: contain; }
+  #lang-toggle img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
 
   /* Genel Stil Ayarları */
   html { scroll-behavior: smooth; overflow-x: hidden; }
-  body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans
+  body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+  body {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-color: #000;
+    color: #ccc;
+    margin: 0;
+  }
+
+  .w3-sidebar {width: 120px; background: rgba(34, 34, 34, 0.9); position: fixed; height: 100%; z-index: 1;}
+  #main {margin-left: 120px;}
+  .section-content { padding: 100px 80px; max-width: 1100px; min-height: 100vh; }
+  .progress-bar { width: 0; height: 28px; transition: width 1.5s ease-in-out; }
+  .social-icons a, .contact-links a { text-decoration: none !important; color: inherit; transition: 0.3s; display: inline-block; }
+  .social-icons i, .contact-links i { font-size: 24px !important; width: 35px; text-align: center; }
+
+  @media only screen and (max-width: 600px) {
+    .w3-sidebar { display: none !important; }
+    #mobile-nav { display: flex !important; }
+    #main { margin-left: 0 !important; }
+    .section-content { padding: 80px 20px; }
+    .w3-jumbo { font-size: 30px !important; }
+    #lang-toggle { top: 70px; right: 15px; } /* Mobilde menüden kaçır */
+  }
+
+  #mobile-nav { display: none; position: fixed; top: 0; width: 1
