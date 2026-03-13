@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <title>Soner Akça | Official Page</title>
 <meta charset="UTF-8">
@@ -26,15 +26,15 @@
   ::-webkit-scrollbar-thumb:hover { background: #555; }
   * { scrollbar-width: thin; scrollbar-color: #333 #000; }
 
-  /* --- DİL BUTONU STİLİ (BAYRAKLI) --- */
+  /* --- DİL BUTONU STİLİ (ÇERÇEVESİZ) --- */
   .lang-switch {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 1001;
-    background: rgba(34, 34, 34, 0.8);
+    background: rgba(34, 34, 34, 0.7); /* Hafif şeffaf */
     color: white;
-    border: 1px solid #444;
+    border: none; /* Çerçeve kaldırıldı */
     padding: 10px;
     cursor: pointer;
     border-radius: 5px;
@@ -43,11 +43,12 @@
     justify-content: center;
     transition: 0.3s;
     backdrop-filter: blur(5px);
-    width: 50px; /* Buton boyutu sabitlendi */
+    width: 50px;
     height: 35px;
+    outline: none; /* Odaklanma çerçevesi de kaldırıldı */
   }
-  .lang-switch:hover { background: #fff; border-color: #fff; }
-  .lang-switch i { font-size: 20px; } /* Bayrak boyutu */
+  .lang-switch:hover { background: rgba(255, 255, 255, 0.2); }
+  .lang-switch i { font-size: 20px; }
 
   .w3-sidebar .w3-bar-item:focus, .w3-sidebar .w3-bar-item:active { background-color: #000 !important; color: #fff !important; }
   html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -79,7 +80,7 @@
     #main { margin-left: 0 !important; }
     .section-content { padding: 80px 20px; }
     .w3-jumbo { font-size: 30px !important; }
-    .lang-switch { top: 70px; right: 10px; } /* Mobilde menü altına */
+    .lang-switch { top: 70px; right: 10px; }
   }
 
   #mobile-nav {
@@ -101,26 +102,26 @@
 <body>
 
 <button class="lang-switch" onclick="toggleLanguage()" id="langBtn">
-  <span id="langIcon" class="fi fi-gb"></span> </button>
+  <span id="langIcon" class="fi fi-tr"></span> </button>
 
 <nav id="mobile-nav">
-  <a href="#"><i class="fa fa-home"></i><br><span data-key="nav-home">ANASAYFA</span></a>
-  <a href="#about"><i class="fa fa-user"></i><br><span data-key="nav-about">HAKKINDA</span></a>
-  <a href="#contact"><i class="fa fa-envelope"></i><br><span data-key="nav-contact">İLETİŞİM</span></a>
+  <a href="#"><i class="fa fa-home"></i><br><span data-key="nav-home">HOME</span></a>
+  <a href="#about"><i class="fa fa-user"></i><br><span data-key="nav-about">ABOUT</span></a>
+  <a href="#contact"><i class="fa fa-envelope"></i><br><span data-key="nav-contact">CONTACT</span></a>
 </nav>
 
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
   <a href="#" class="w3-bar-item w3-button w3-padding-large" id="link-home">
     <i class="fa fa-home w3-xxlarge"></i>
-    <p><strong data-key="nav-home">ANASAYFA</strong></p>
+    <p><strong data-key="nav-home">HOME</strong></p>
   </a>
   <a href="#about" class="w3-bar-item w3-button w3-padding-large" id="link-about">
     <i class="fa fa-user w3-xxlarge"></i>
-    <p><strong data-key="nav-about">HAKKINDA</strong></p>
+    <p><strong data-key="nav-about">ABOUT</strong></p>
   </a>
   <a href="#contact" class="w3-bar-item w3-button w3-padding-large" id="link-contact">
     <i class="fa fa-envelope w3-xxlarge"></i>
-    <p><strong data-key="nav-contact">İLETİŞİM</strong></p>
+    <p><strong data-key="nav-contact">CONTACT</strong></p>
   </a>
 </nav>
 
@@ -128,7 +129,7 @@
   
   <header class="w3-container" id="home" style="min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
     <div style="transform: translateY(-20px); text-align: center;">  
-      <h1 class="w3-jumbo" style="margin-bottom: 0;"><span data-key="hero-title">Ben, Soner Akça.</span></h1>
+      <h1 class="w3-jumbo" style="margin-bottom: 0;"><span data-key="hero-title">I'm Soner Akça.</span></h1>
       <p style="margin-top: 5px;" data-key="hero-subtitle">computer programmer & software developer</p>
     </div>
   </header>
@@ -136,35 +137,35 @@
   <div class="section-content w3-justify" id="about">
     <h2 class="w3-text-light-grey" data-key="about-title">Soner Akça</h2>
     <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
-    <p><strong data-key="about-text">Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur. Yazılım, web ve grafik tasarım alanlarında çalışan Soner, teknolojiyle iç içe bir üretim sürecini benimseyerek dijital dünyada yaratıcı ve işlevsel projeler geliştirmektedir. Modern web teknolojileri, kullanıcı deneyimi ve görsel tasarım konularına özel ilgi duyan Soner, projelerinde hem estetik hem de performansı ön planda tutar. Sürekli öğrenmeye ve kendini geliştirmeye önem veren bir yaklaşım benimseyerek yazılım dünyasındaki yenilikleri yakından takip eder. Disiplinli çalışma anlayışı ve üretme tutkusu, onu dijital alanda her zaman daha iyisini hedefleyen bir geliştirici haline getirmektedir.</strong></p>
+    <p><strong data-key="about-text">Soner Akça was born on April 28, 1992, in Bafra, Samsun. Working in the fields of software, web, and graphic design, Soner develops creative and functional projects in the digital world by adopting a production process intertwined with technology. Particularly interested in modern web technologies, user experience, and visual design, Soner prioritizes both aesthetics and performance in his projects. By adopting an approach that values continuous learning and self-improvement, he closely follows innovations in the software world. His disciplined work ethic and passion for creation make him a developer who always aims for the better in the digital field.</strong></p>
     
-    <h3 class="w3-padding-16 w3-text-light-grey" data-key="skills-title">Tecrübelerim</h3>
-    <p class="w3-wide" data-key="skill-1">Yazılım</p>
+    <h3 class="w3-padding-16 w3-text-light-grey" data-key="skills-title">My Experiences</h3>
+    <p class="w3-wide" data-key="skill-1">Software</p>
     <div class="w3-grey"><div class="w3-white progress-bar" data-width="55%"></div></div>
-    <p class="w3-wide" data-key="skill-2">Web Tasarım</p>
+    <p class="w3-wide" data-key="skill-2">Web Design</p>
     <div class="w3-grey"><div class="w3-white progress-bar" data-width="60%"></div></div>
-    <p class="w3-wide" data-key="skill-3">Grafik Tasarım</p>
+    <p class="w3-wide" data-key="skill-3">Graphic Design</p>
     <div class="w3-grey"><div class="w3-white progress-bar" data-width="85%"></div></div>
   </div>
 
   <div class="section-content" id="contact">
-    <h2 class="w3-text-light-grey" data-key="contact-title">Bana Ulaşın</h2>
+    <h2 class="w3-text-light-grey" data-key="contact-title">Contact Me</h2>
     <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
     
     <div class="w3-section contact-links">
       <p>
         <a href="mailto:ultrasoner55@hotmail.com">
-          <i class="fa fa-envelope fa-fw w3-text-white"></i> <span data-key="contact-mail">Sorularınız için mail bırakın</span>
+          <i class="fa fa-envelope fa-fw w3-text-white"></i> <span data-key="contact-mail">Send an email for your questions</span>
         </a>
       </p>
       <p>
         <a href="https://ultrasoner55.short.gy/whatsapp" target="_blank">
-          <i class="fa fa-whatsapp fa-fw w3-text-white"></i> <span data-key="contact-whatsapp">Hızlı cevap için WhatsApp</span>
+          <i class="fa fa-whatsapp fa-fw w3-text-white"></i> <span data-key="contact-whatsapp">WhatsApp for quick reply</span>
         </a>
       </p>
       <p>
         <a href="https://www.google.com/maps?q=Bafra,Samsun" target="_blank">
-          <i class="fa fa-map-marker fa-fw w3-text-white"></i> <span data-key="contact-location">Samsun, Türkiye</span>
+          <i class="fa fa-map-marker fa-fw w3-text-white"></i> <span data-key="contact-location">Samsun, Turkey</span>
         </a>
       </p>
     </div>
@@ -188,25 +189,7 @@
 </div>
 
 <script>
-  // KODUN İÇİNDE HAZIR ÇEVİRİ SÖZLÜĞÜ (GOOGLE TRANSLATE KULLANILMAZ)
   const translations = {
-    'tr': {
-      'nav-home': 'ANASAYFA',
-      'nav-about': 'HAKKINDA',
-      'nav-contact': 'İLETİŞİM',
-      'hero-title': 'Ben, Soner Akça.',
-      'hero-subtitle': 'bilgisayar programcısı & yazılım geliştirici',
-      'about-title': 'Soner Akça',
-      'about-text': 'Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur. Yazılım, web ve grafik tasarım alanlarında çalışan Soner, teknolojiyle iç içe bir üretim sürecini benimseyerek dijital dünyada yaratıcı ve işlevsel projeler geliştirmektedir. Modern web teknolojileri, kullanıcı deneyimi ve görsel tasarım konularına özel ilgi duyan Soner, projelerinde hem estetik hem de performansı ön planda tutar. Sürekli öğrenmeye ve kendini geliştirmeye önem veren bir yaklaşım benimseyerek yazılım dünyasındaki yenilikleri yakından takip eder. Disiplinli çalışma anlayışı ve üretme tutkusu, onu dijital alanda her zaman daha iyisini hedefleyen bir geliştirici haline getirmektedir.',
-      'skills-title': 'Tecrübelerim',
-      'skill-1': 'Yazılım',
-      'skill-2': 'Web Tasarım',
-      'skill-3': 'Grafik Tasarım',
-      'contact-title': 'Bana Ulaşın',
-      'contact-mail': 'Sorularınız için mail bırakın',
-      'contact-whatsapp': 'Hızlı cevap için WhatsApp',
-      'contact-location': 'Samsun, Türkiye'
-    },
     'en': {
       'nav-home': 'HOME',
       'nav-about': 'ABOUT',
@@ -223,30 +206,45 @@
       'contact-mail': 'Send an email for your questions',
       'contact-whatsapp': 'WhatsApp for quick reply',
       'contact-location': 'Samsun, Turkey'
+    },
+    'tr': {
+      'nav-home': 'ANASAYFA',
+      'nav-about': 'HAKKINDA',
+      'nav-contact': 'İLETİŞİM',
+      'hero-title': 'Ben, Soner Akça.',
+      'hero-subtitle': 'bilgisayar programcısı & yazılım geliştirici',
+      'about-title': 'Soner Akça',
+      'about-text': 'Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur. Yazılım, web ve grafik tasarım alanlarında çalışan Soner, teknolojiyle iç içe bir üretim sürecini benimseyerek dijital dünyada yaratıcı ve işlevsel projeler geliştirmektedir. Modern web teknolojileri, kullanıcı deneyimi ve görsel tasarım konularına özel ilgi duyan Soner, projelerinde hem estetik hem de performansı ön planda tutar. Sürekli öğrenmeye ve kendini geliştirmeye önem veren bir yaklaşım benimseyerek yazılım dünyasındaki yenilikleri yakından takip eder. Disiplinli çalışma anlayışı ve üretme tutkusu, onu dijital alanda her zaman daha iyisini hedefleyen bir geliştirici haline getirmektedir.',
+      'skills-title': 'Tecrübelerim',
+      'skill-1': 'Yazılım',
+      'skill-2': 'Web Tasarım',
+      'skill-3': 'Grafik Tasarım',
+      'contact-title': 'Bana Ulaşın',
+      'contact-mail': 'Sorularınız için mail bırakın',
+      'contact-whatsapp': 'Hızlı cevap için WhatsApp',
+      'contact-location': 'Samsun, Türkiye'
     }
   };
 
-  let currentLang = 'tr';
+  let currentLang = 'en'; // Varsaılan dil İngilizce yapıldı
 
   function toggleLanguage() {
     const langIcon = document.getElementById('langIcon');
     
-    if (currentLang === 'tr') {
-      currentLang = 'en';
-      langIcon.className = 'fi fi-tr'; // İngilizceyken TR bayrağı göster (Geri dönmek için)
-    } else {
+    if (currentLang === 'en') {
       currentLang = 'tr';
-      langIcon.className = 'fi fi-gb'; // Türkçeyken EN bayrağı göster
+      langIcon.className = 'fi fi-gb'; // Türkçeye geçince İngiliz bayrağı göster
+    } else {
+      currentLang = 'en';
+      langIcon.className = 'fi fi-tr'; // İngilizceye geçince Türk bayrağı göster
     }
     
-    // Tüm metinleri sözlükten güncelle
     document.querySelectorAll('[data-key]').forEach(el => {
       const key = el.getAttribute('data-key');
       el.innerText = translations[currentLang][key];
     });
   }
 
-  // --- SAYFA FONKSİYONLARI ---
   function updateMenu() {
     var scrollPos = window.scrollY || document.documentElement.scrollTop;
     var navLinks = document.querySelectorAll('.w3-sidebar a, #mobile-nav a');
