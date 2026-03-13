@@ -24,27 +24,27 @@
   ::-webkit-scrollbar-thumb:hover { background: #555; }
   * { scrollbar-width: thin; scrollbar-color: #333 #000; }
 
-  /* --- DİL BUTONU (SAĞ ÜST) --- */
+  /* --- DİL BUTONU (KÜÇÜK VE HALKASIZ) --- */
   #lang-toggle {
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 1001; /* Diğer her şeyin üstünde */
+    z-index: 1100;
     cursor: pointer;
-    width: 50px;
-    height: 50px;
-    background: rgba(34, 34, 34, 0.9);
-    border: 2px solid #fff;
+    width: 40px; 
+    height: 40px;
+    background: rgba(40, 40, 40, 0.8);
+    border: none; /* Halkayı kaldırdık */
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    transition: transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    transition: transform 0.2s ease;
     touch-action: manipulation;
   }
-  #lang-toggle:active { transform: scale(0.9); }
-  #lang-toggle img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+  #lang-toggle:active { transform: scale(0.85); }
+  #lang-toggle img { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; }
 
   /* Genel Stil Ayarları */
   html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -72,7 +72,7 @@
     #main { margin-left: 0 !important; }
     .section-content { padding: 80px 20px; }
     .w3-jumbo { font-size: 30px !important; }
-    #lang-toggle { top: 70px; right: 15px; } /* Mobilde menüden kaçır */
+    #lang-toggle { top: 70px; right: 15px; width: 38px; height: 38px; } 
   }
 
   #mobile-nav { display: none; position: fixed; top: 0; width: 100%; z-index: 1000; background: #222; justify-content: space-around; box-shadow: 0 2px 5px rgba(0,0,0,0.5); }
@@ -118,7 +118,7 @@
   <div class="section-content w3-justify" id="about">
     <h2 class="w3-text-light-grey lang-text" data-key="about_title">Soner Akça</h2>
     <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
-    <p><strong class="lang-text" data-key="about_text">Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur. Yazılım, web ve grafik tasarım alanlarında çalışan Soner, teknolojiyle iç içe bir üretim sürecini benimseyerek dijital dünyada yaratıcı ve işlevsel projeler geliştirmektedir...</strong></p>
+    <p><strong class="lang-text" data-key="about_text">Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur. Yazılım, web ve grafik tasarım alanlarında çalışan Soner, teknolojiyle iç içe bir üretim sürecini benimseyerek dijital dünyada yaratıcı ve işlevsel projeler geliştirmektedir. Modern web teknolojileri, kullanıcı deneyimi ve görsel tasarım konularına özel ilgi duyan Soner, projelerinde hem estetik hem de performansı ön planda tutar.</strong></p>
     
     <h3 class="w3-padding-16 w3-text-light-grey lang-text" data-key="skills_title">Tecrübelerim</h3>
     <p class="w3-wide lang-text" data-key="s1">Yazılım</p>
@@ -151,12 +151,11 @@
 </div>
 
 <script>
-  // DİL VERİLERİ (BEYAZ SAYFAYI ÖNLEMEK İÇİN KEYLERİ KISALTTIK VE NETLEŞTİRDİK)
   const translations = {
     tr: {
       nav_home: "ANASAYFA", nav_about: "HAKKINDA", nav_contact: "İLETİŞİM",
       home_h1: "Ben, Soner Akça.", home_p: "computer programmer & software developer",
-      about_title: "Soner Akça", about_text: "Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur. Yazılım, web ve grafik tasarım alanlarında çalışan Soner, teknolojiyle iç içe bir üretim sürecini benimseyerek dijital dünyada yaratıcı ve işlevsel projeler geliştirmektedir. Modern web teknolojileri, kullanıcı deneyimi ve görsel tasarım konularına özel ilgi duyan Soner, projelerinde hem estetik hem de performansı ön planda tutar.",
+      about_title: "Soner Akça", about_text: "Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur. Yazılım, web ve grafik tasarım alanlarında çalışan Soner, teknolojiyle iç içe bir üretim sürecini benimseyerek dijital dünyada yaratıcı ve işlevsel projeler geliştirmektedir.",
       skills_title: "Tecrübelerim", s1: "Yazılım", s2: "Web Tasarım", s3: "Grafik Tasarım",
       con_title: "Bana Ulaşın", c1: "Sorularınız için mail bırakın", c2: "Hızlı cevap için WhatsApp",
       flag: "https://flagcdn.com/w80/us.png"
@@ -164,7 +163,7 @@
     en: {
       nav_home: "HOME", nav_about: "ABOUT", nav_contact: "CONTACT",
       home_h1: "I am Soner Akça.", home_p: "computer programmer & software developer",
-      about_title: "About Me", about_text: "Soner Akça was born on April 28, 1992, in Bafra, Samsun. Working in software, web, and graphic design, Soner develops creative and functional projects by embracing technology. He focuses on aesthetics and performance in modern web technologies, user experience, and visual design.",
+      about_title: "About Me", about_text: "Soner Akça was born on April 28, 1992, in Bafra, Samsun. Working in software, web, and graphic design, Soner develops creative and functional projects by embracing technology.",
       skills_title: "My Experience", s1: "Software", s2: "Web Design", s3: "Graphic Design",
       con_title: "Contact Me", c1: "Leave a mail for questions", c2: "WhatsApp for quick response",
       flag: "https://flagcdn.com/w80/tr.png"
@@ -177,17 +176,14 @@
     currentLang = currentLang === 'tr' ? 'en' : 'tr';
     const langData = translations[currentLang];
     
-    // Metin Güncelleme
     document.querySelectorAll('.lang-text').forEach(el => {
       const key = el.getAttribute('data-key');
       if (langData[key]) el.innerText = langData[key];
     });
 
-    // Bayrak Güncelleme
     document.getElementById('lang-img').src = langData.flag;
   }
 
-  // MENÜ VE BAR TAKİBİ
   function updateMenu() {
     const scrollPos = window.scrollY || document.documentElement.scrollTop;
     const navLinks = document.querySelectorAll('.w3-sidebar a, #mobile-nav a');
