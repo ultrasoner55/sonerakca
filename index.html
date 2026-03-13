@@ -72,17 +72,8 @@
   .social-icons a, .contact-links a { text-decoration: none !important; color: inherit; transition: 0.3s; display: inline-block; }
   .social-icons i, .contact-links i { font-size: 24px !important; width: 35px; text-align: center; }
   .social-icons a { margin-right: 15px; }
-  /* Sosyal medya ikonları: Hem grileşir hem yukarı zıplar */
-.social-icons a:hover { 
-  color: #9e9e9e !important; 
-  transform: translateY(-3px); 
-}
+  .social-icons a:hover, .contact-links a:hover { color: #9e9e9e !important; transform: translateY(-3px); }
 
-/* İletişim linkleri (Mail, WhatsApp, Konum): SADECE grileşir, kımıldamaz */
-.contact-links a:hover { 
-  color: #9e9e9e !important; 
-  transform: none !important; 
-}
   @media only screen and (max-width: 600px) {
     .w3-sidebar { display: none !important; }
     #mobile-nav { display: flex !important; }
@@ -163,22 +154,22 @@
     <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
     
     <div class="w3-section contact-links">
-  <p>
-    <a href="mailto:ultrasoner55@hotmail.com" class="w3-hover-text-grey" style="text-decoration: none;">
-      <i class="fa fa-envelope fa-fw"></i> <span>Send an email...</span>
-    </a>
-  </p>
-  <p>
-    <a href="https://ultrasoner55.short.gy/whatsapp" target="_blank" class="w3-hover-text-grey" style="text-decoration: none;">
-      <i class="fa fa-whatsapp fa-fw"></i> <span>WhatsApp for...</span>
-    </a>
-  </p>
-  <p>
-    <a href="https://www.google.com/maps/search/Samsun" target="_blank" class="w3-hover-text-grey" style="text-decoration: none;">
-      <i class="fa fa-map-marker fa-fw"></i> <span>Samsun, Turkey</span>
-    </a>
-  </p>
-</div>
+      <p>
+        <a href="mailto:ultrasoner55@hotmail.com">
+          <i class="fa fa-envelope fa-fw w3-text-white"></i> <span data-key="contact-mail">Send an email for your questions</span>
+        </a>
+      </p>
+      <p>
+        <a href="https://ultrasoner55.short.gy/whatsapp" target="_blank">
+          <i class="fa fa-whatsapp fa-fw w3-text-white"></i> <span data-key="contact-whatsapp">WhatsApp for quick reply</span>
+        </a>
+      </p>
+      <p>
+        <a href="https://www.google.com/maps/search/Samsun" target="_blank">
+          <i class="fa fa-map-marker fa-fw w3-text-white"></i> <span data-key="contact-location">Samsun, Turkey</span>
+        </a>
+      </p>
+    </div>
     
     <footer class="w3-padding-64">
       <div class="social-icons w3-xlarge">
