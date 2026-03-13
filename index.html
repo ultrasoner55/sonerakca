@@ -72,7 +72,12 @@
   .social-icons a, .contact-links a { text-decoration: none !important; color: inherit; transition: 0.3s; display: inline-block; }
   .social-icons i, .contact-links i { font-size: 24px !important; width: 35px; text-align: center; }
   .social-icons a { margin-right: 15px; }
-  .social-icons a:hover, .contact-links a:hover { color: #9e9e9e !important; transform: translateY(-3px); }
+
+  /* Sosyal medya ikonları orijinal efektini koruyor */
+  .social-icons a:hover { color: #9e9e9e !important; transform: translateY(-3px); }
+
+  /* Sadece iletişim linkleri (mail, whatsapp, konum) sabit kalıp grileşiyor */
+  .contact-links a:hover { color: #9e9e9e !important; transform: none; }
 
   @media only screen and (max-width: 600px) {
     .w3-sidebar { display: none !important; }
@@ -231,7 +236,6 @@
 
   function toggleLanguage() {
     const langIcon = document.getElementById('langIcon');
-    
     if (currentLang === 'en') {
       currentLang = 'tr';
       langIcon.className = 'fi fi-gb';
@@ -239,7 +243,6 @@
       currentLang = 'en';
       langIcon.className = 'fi fi-tr';
     }
-    
     document.querySelectorAll('[data-key]').forEach(el => {
       const key = el.getAttribute('data-key');
       el.innerText = translations[currentLang][key];
@@ -254,11 +257,9 @@
       { id: 'about', top: document.getElementById('about').offsetTop },
       { id: 'contact', top: document.getElementById('contact').offsetTop }
     ];
-
     navLinks.forEach(link => link.classList.remove('w3-black'));
     let currentId = 'home';
     sections.forEach(section => { if (scrollPos >= section.top - 280) currentId = section.id; });
-
     navLinks.forEach(link => {
       const href = link.getAttribute('href');
       if (((href === '#' || href === '#home') && currentId === 'home') || href === '#' + currentId) {
