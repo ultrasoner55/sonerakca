@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-  /* --- YENİ: KAYDIRMA ÇUBUĞU (SCROLLBAR) ÖZELLEŞTİRME --- */
+  /* --- KAYDIRMA ÇUBUĞU (SCROLLBAR) ÖZELLEŞTİRME --- */
   ::-webkit-scrollbar { width: 8px; }
   ::-webkit-scrollbar-track { background: #000; }
   ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; border: 2px solid #000; }
@@ -29,7 +29,7 @@
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 1000;
+    z-index: 1001;
     background: rgba(34, 34, 34, 0.8);
     color: white;
     border: 1px solid #444;
@@ -73,7 +73,7 @@
     #main { margin-left: 0 !important; }
     .section-content { padding: 80px 20px; }
     .w3-jumbo { font-size: 30px !important; }
-    .lang-switch { top: 70px; right: 10px; padding: 5px 10px; font-size: 12px; } /* Mobilde menü altına çektik */
+    .lang-switch { top: 70px; right: 10px; padding: 5px 10px; font-size: 12px; }
   }
 
   #mobile-nav {
@@ -97,9 +97,9 @@
 <button class="lang-switch" onclick="toggleLanguage()" id="langBtn">EN</button>
 
 <nav id="mobile-nav">
-  <a href="#" class="nav-home"><i class="fa fa-home"></i><br><span data-key="nav-home">ANASAYFA</span></a>
-  <a href="#about" class="nav-about"><i class="fa fa-user"></i><br><span data-key="nav-about">HAKKINDA</span></a>
-  <a href="#contact" class="nav-contact"><i class="fa fa-envelope"></i><br><span data-key="nav-contact">İLETİŞİM</span></a>
+  <a href="#"><i class="fa fa-home"></i><br><span data-key="nav-home">ANASAYFA</span></a>
+  <a href="#about"><i class="fa fa-user"></i><br><span data-key="nav-about">HAKKINDA</span></a>
+  <a href="#contact"><i class="fa fa-envelope"></i><br><span data-key="nav-contact">İLETİŞİM</span></a>
 </nav>
 
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
@@ -181,7 +181,7 @@
 </div>
 
 <script>
-  // DİL VERİLERİ
+  // DİL VERİLERİ (TAM METİN)
   const translations = {
     'tr': {
       'nav-home': 'ANASAYFA',
@@ -190,7 +190,7 @@
       'hero-title': 'Ben, Soner Akça.',
       'hero-subtitle': 'bilgisayar programcısı & yazılım geliştirici',
       'about-title': 'Soner Akça',
-      'about-text': 'Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur. Yazılım, web ve grafik tasarım alanlarında çalışan Soner, teknolojiyle iç içe bir üretim sürecini benimseyerek dijital dünyada yaratıcı ve işlevsel projeler geliştirmektedir...',
+      'about-text': 'Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur. Yazılım, web ve grafik tasarım alanlarında çalışan Soner, teknolojiyle iç içe bir üretim sürecini benimseyerek dijital dünyada yaratıcı ve işlevsel projeler geliştirmektedir. Modern web teknolojileri, kullanıcı deneyimi ve görsel tasarım konularına özel ilgi duyan Soner, projelerinde hem estetik hem de performansı ön planda tutar. Sürekli öğrenmeye ve kendini geliştirmeye önem veren bir yaklaşım benimseyerek yazılım dünyasındaki yenilikleri yakından takip eder. Disiplinli çalışma anlayışı ve üretme tutkusu, onu dijital alanda her zaman daha iyisini hedefleyen bir geliştirici haline getirmektedir.',
       'skills-title': 'Tecrübelerim',
       'skill-1': 'Yazılım',
       'skill-2': 'Web Tasarım',
@@ -207,7 +207,7 @@
       'hero-title': "I'm Soner Akça.",
       'hero-subtitle': 'computer programmer & software developer',
       'about-title': 'Soner Akça',
-      'about-text': 'Soner Akça was born on April 28, 1992, in Bafra, Samsun. Working in the fields of software, web, and graphic design, Soner develops creative and functional projects in the digital world by adopting a production process intertwined with technology...',
+      'about-text': 'Soner Akça was born on April 28, 1992, in Bafra, Samsun. Working in the fields of software, web, and graphic design, Soner develops creative and functional projects in the digital world by adopting a production process intertwined with technology. Particularly interested in modern web technologies, user experience, and visual design, Soner prioritizes both aesthetics and performance in his projects. By adopting an approach that values continuous learning and self-improvement, he closely follows innovations in the software world. His disciplined work ethic and passion for creation make him a developer who always aims for the better in the digital field.',
       'skills-title': 'My Experiences',
       'skill-1': 'Software',
       'skill-2': 'Web Design',
@@ -231,7 +231,6 @@
     });
   }
 
-  // --- MEVCUT DİĞER FONKSİYONLAR ---
   function updateMenu() {
     var scrollPos = window.scrollY || document.documentElement.scrollTop;
     var navLinks = document.querySelectorAll('.w3-sidebar a, #mobile-nav a');
