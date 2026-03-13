@@ -50,19 +50,19 @@
   .section-content { padding: 100px 80px; max-width: 1100px; min-height: 100vh; }
   .progress-bar { width: 0; height: 28px; transition: width 1.5s cubic-bezier(0.1, 0.5, 0.5, 1); }
 
-  /* --- HOVER EFEKTLERİ (SADECE GRİLEŞME, HAREKET YOK) --- */
+  /* --- HOVER EFEKTLERİ --- */
   .social-icons a, .contact-links a, .github-link { 
     text-decoration: none !important; 
-    color: inherit; 
-    transition: 0.3s; 
+    color: #ccc; /* Varsayılan renk bir tık daha açık */
+    transition: color 0.2s ease-in-out; 
     display: inline-block; 
-    transform: none !important; /* Hareket tamamen engellendi */
   }
 
-  /* Tüm linkler üzerine gelince sadece grileşir */
+  /* Üzerine gelince daha yoğun grileşme (#777) ve asla hareket etmeme */
   .social-icons a:hover, .contact-links a:hover, .github-link:hover { 
-    color: #9e9e9e !important; 
-    transform: none !important; /* Padişahım, burada hareketi sıfırladık */
+    color: #777 !important; 
+    transform: none !important; 
+    -webkit-transform: none !important;
   }
 
   .social-icons i, .contact-links i { font-size: 24px !important; width: 35px; text-align: center; }
@@ -175,7 +175,7 @@
 </div>
 
 <script>
-  /* Tercümeler ve Fonksiyonlar aynı şekilde kalmıştır */
+  /* Geri kalan JS mantığı aynı */
   const translations = {
     'en': {
       'nav-home': 'HOME', 'nav-about': 'ABOUT', 'nav-contact': 'CONTACT',
