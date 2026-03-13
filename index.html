@@ -16,6 +16,8 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
+
 <style>
   /* --- KAYDIRMA ÇUBUĞU (SCROLLBAR) ÖZELLEŞTİRME --- */
   ::-webkit-scrollbar { width: 8px; }
@@ -24,7 +26,7 @@
   ::-webkit-scrollbar-thumb:hover { background: #555; }
   * { scrollbar-width: thin; scrollbar-color: #333 #000; }
 
-  /* --- DİL BUTONU STİLİ --- */
+  /* --- DİL BUTONU STİLİ (BAYRAKLI) --- */
   .lang-switch {
     position: fixed;
     top: 20px;
@@ -33,15 +35,19 @@
     background: rgba(34, 34, 34, 0.8);
     color: white;
     border: 1px solid #444;
-    padding: 8px 15px;
+    padding: 10px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: 0.3s;
     backdrop-filter: blur(5px);
+    width: 50px; /* Buton boyutu sabitlendi */
+    height: 35px;
   }
-  .lang-switch:hover { background: #fff; color: #000; }
+  .lang-switch:hover { background: #fff; border-color: #fff; }
+  .lang-switch i { font-size: 20px; } /* Bayrak boyutu */
 
   .w3-sidebar .w3-bar-item:focus, .w3-sidebar .w3-bar-item:active { background-color: #000 !important; color: #fff !important; }
   html { scroll-behavior: smooth; overflow-x: hidden; }
@@ -73,7 +79,7 @@
     #main { margin-left: 0 !important; }
     .section-content { padding: 80px 20px; }
     .w3-jumbo { font-size: 30px !important; }
-    .lang-switch { top: 70px; right: 10px; padding: 5px 10px; font-size: 12px; }
+    .lang-switch { top: 70px; right: 10px; } /* Mobilde menü altına */
   }
 
   #mobile-nav {
@@ -94,7 +100,8 @@
 </head>
 <body>
 
-<button class="lang-switch" onclick="toggleLanguage()" id="langBtn">EN</button>
+<button class="lang-switch" onclick="toggleLanguage()" id="langBtn">
+  <span id="langIcon" class="fi fi-gb"></span> </button>
 
 <nav id="mobile-nav">
   <a href="#"><i class="fa fa-home"></i><br><span data-key="nav-home">ANASAYFA</span></a>
@@ -181,7 +188,7 @@
 </div>
 
 <script>
-  // DİL VERİLERİ (TAM METİN)
+  // KODUN İÇİNDE HAZIR ÇEVİRİ SÖZLÜĞÜ (GOOGLE TRANSLATE KULLANILMAZ)
   const translations = {
     'tr': {
       'nav-home': 'ANASAYFA',
@@ -222,15 +229,24 @@
   let currentLang = 'tr';
 
   function toggleLanguage() {
-    currentLang = currentLang === 'tr' ? 'en' : 'tr';
-    document.getElementById('langBtn').innerText = currentLang === 'tr' ? 'EN' : 'TR';
+    const langIcon = document.getElementById('langIcon');
     
+    if (currentLang === 'tr') {
+      currentLang = 'en';
+      langIcon.className = 'fi fi-tr'; // İngilizceyken TR bayrağı göster (Geri dönmek için)
+    } else {
+      currentLang = 'tr';
+      langIcon.className = 'fi fi-gb'; // Türkçeyken EN bayrağı göster
+    }
+    
+    // Tüm metinleri sözlükten güncelle
     document.querySelectorAll('[data-key]').forEach(el => {
       const key = el.getAttribute('data-key');
       el.innerText = translations[currentLang][key];
     });
   }
 
+  // --- SAYFA FONKSİYONLARI ---
   function updateMenu() {
     var scrollPos = window.scrollY || document.documentElement.scrollTop;
     var navLinks = document.querySelectorAll('.w3-sidebar a, #mobile-nav a');
