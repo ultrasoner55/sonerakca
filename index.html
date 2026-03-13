@@ -11,49 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <style>
-        /* GENEL AYARLAR */
-        html { scroll-behavior: smooth; }
-        body, h1, h2, h3, h4, h5, h6 { font-family: "Montserrat", sans-serif; }
-        body {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.png') fixed center/cover #000;
-            color: #ccc;
-            margin: 0;
-        }
-
-        /* SIDEBAR & NAV (GRİLEŞME ENGELLENDİ) */
-        .w3-sidebar { width: 120px; background: rgba(34, 34, 34, 0.9); position: fixed; height: 100%; z-index: 1; }
-        .w3-bar-item.w3-button:hover { background-color: transparent !important; color: #fff !important; }
-        
-        #main { margin-left: 120px; }
-
-        /* İÇERİK */
-        .section-content { padding: 100px 80px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
-
-        /* SOSYAL MEDYA (ARALAR DÜZELTİLDİ) */
-        .social-icons { margin: 25px 0; display: flex; gap: 20px; }
-        .social-icons a { text-decoration: none; color: #fff; font-size: 24px; transition: 0.3s; }
-        .social-icons a:hover { transform: translateY(-3px); color: #9e9e9e !important; }
-
-        /* POWERED BY & GITHUB LOGO */
-        .footer-text { margin-top: 20px; font-size: 14px; display: flex; align-items: center; gap: 8px; }
-        .footer-text a { color: #fff; text-decoration: none; font-weight: bold; }
-
-        /* YETENEK BARLARI */
-        .progress-bar { height: 28px; background-color: #fff; width: 0; transition: width 1.5s ease; }
-
-        /* MOBİL UYUM */
-        #mobile-nav { display: none; position: fixed; top: 0; width: 100%; z-index: 999; background: #222; }
-        #mobile-nav a { flex: 1; text-align: center; padding: 15px; color: white; text-decoration: none; font-size: 12px; }
-
-        @media only screen and (max-width: 600px) {
-            .w3-sidebar { display: none !important; }
-            #mobile-nav { display: flex !important; }
-            #main { margin-left: 0 !important; }
-            .section-content { padding: 80px 20px; }
-            .w3-jumbo { font-size: 35px !important; text-align: center; }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -79,4 +37,49 @@
 </nav>
 
 <div id="main">
-  <header class="section-content" id="home" style="
+  <header class="section-content" id="home" style="align-items: center; text-align: center;">
+    <h1 class="w3-jumbo">Ben, Soner Akça.</h1>
+    <p>computer programmer & software developer</p>
+  </header>
+
+  <div class="section-content" id="about">
+    <h2 class="w3-text-light-grey">Soner Akça</h2>
+    <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
+    <p>Soner Akça, 1992 Samsun doğumlu bir geliştiricidir. Yazılım, web ve grafik tasarım alanlarında projeler üretir.</p>
+    
+    <h3 class="w3-padding-16 w3-text-light-grey">Tecrübelerim</h3>
+    <p class="w3-wide">Yazılım</p>
+    <div class="w3-grey"><div class="w3-white progress-bar" data-width="55%"></div></div>
+    <p class="w3-wide">Web Tasarım</p>
+    <div class="w3-grey"><div class="w3-white progress-bar" data-width="60%"></div></div>
+    <p class="w3-wide">Grafik Tasarım</p>
+    <div class="w3-grey"><div class="w3-white progress-bar" data-width="85%"></div></div>
+  </div>
+
+  <div class="section-content" id="contact">
+    <h2 class="w3-text-light-grey">Bana Ulaşın</h2>
+    <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
+    
+    <div class="w3-section">
+      <p><i class="fa fa-envelope fa-fw w3-text-white w3-margin-right"></i> ultrasoner55@hotmail.com</p>
+      <p><i class="fa fa-whatsapp fa-fw w3-text-white w3-margin-right"></i> WhatsApp: <a href="https://ultrasoner55.short.gy/whatsapp" target="_blank" style="color:white;">Hemen Yazın</a></p>
+    </div>
+    
+    <footer class="w3-padding-64">
+      <div class="social-icons">
+        <a href="https://facebook.com/ultrasoner55" target="_blank"><i class="fa fa-facebook-official"></i></a>
+        <a href="https://instagram.com/ultrasoner55" target="_blank"><i class="fa fa-instagram"></i></a>
+        <a href="https://twitter.com/ultrasoner55" target="_blank"><i class="fa fa-twitter"></i></a>
+        <a href="https://youtube.com/ultrasoner55" target="_blank"><i class="fa fa-youtube-play"></i></a>
+      </div>
+      <p class="footer-text">
+        Powered by <a href="https://github.com/ultrasoner55" target="_blank">GitHub <i class="fa fa-github w3-large"></i></a>
+      </p>
+    </footer>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
