@@ -32,36 +32,111 @@
     margin: 0;
   }
 
-  /* --- YENİ MİNİMAL DİL BUTONU --- */
+  /* --- TAMAMEN SIFIRLANMIŞ DİL BUTONU --- */
   .lang-switch {
     position: fixed;
     top: 25px;
     right: 25px;
     z-index: 2000;
-    background: transparent; /* Arka planı tamamen sildim */
-    color: #fff;
+    
+    /* Görünüm Sıfırlama */
+    background: none !important;
+    background-color: transparent !important;
     border: none !important;
-    padding: 5px;
-    font-size: 12px;
-    cursor: pointer;
+    border-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    
+    /* Metin Stili */
+    color: #fff !important;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 1px;
-    transition: 0.3s;
-    outline: none !important; /* Tıklama çerçevesini sildim */
-    box-shadow: none !important;
-    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    text-transform: uppercase;
+    
+    /* Tıklama Efektlerini Kapatma */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-tap-highlight-color: transparent !important;
+    user-select: none;
   }
-  .lang-switch:hover { color: #9e9e9e; }
-  /* Tıklama anında veya sonrasında hiçbir şey çıkmaması için zorlayıcı kurallar */
-  .lang-switch:focus, .lang-switch:active, .lang-switch:visited {
+
+  /* Tıklama anında veya sonrasında oluşabilecek tüm efektleri engelle */
+  .lang-switch:focus, 
+  .lang-switch:active, 
+  .lang-switch:focus-visible,
+  .lang-switch:focus-within {
     outline: none !important;
     border: none !important;
     background: transparent !important;
     box-shadow: none !important;
+    -webkit-box-shadow: none !important;
   }
+
+  .lang-switch:hover { color: #aaa !important; }
 
   /* SIDEBAR & SEKMELER */
   .w3-sidebar { width: 120px; background: rgba(20, 20, 20, 0.95); position: fixed; height: 100%; z-index: 1; }
   .w3-sidebar a.w3-bar-item { color: #fff !important; text-decoration: none; transition: 0.3s; }
   .w3-sidebar a.w3-bar-item:hover { background-color: transparent !important; color: #9e9e9e !important; }
-  .w3-black { background-color: #000 !important; color: #fff !important;
+  .w3-black { background-color: #000 !important; color: #fff !important; }
+
+  #main { margin-left: 120px; }
+  .section-content { padding: 100px 80px; max-width: 1100px; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+
+  /* SOSYAL MEDYA */
+  .social-icons { margin: 25px 0; display: flex; align-items: center; }
+  .social-icons a { text-decoration: none !important; color: #fff !important; margin-right: 8px; transition: 0.3s; display: inline-block; }
+  .social-icons a:hover { transform: translateY(-3px); color: #9e9e9e !important; }
+  .social-icons i { font-size: 24px !important; width: 35px; text-align: center; }
+
+  /* MOBİL UYUM */
+  #mobile-nav { display: none; position: fixed; top: 0; width: 100%; z-index: 999; background: #111; justify-content: space-around; }
+  #mobile-nav a { padding: 15px 0; text-align: center; width: 33.33%; text-decoration: none; color: white !important; font-size: 11px; font-weight: bold; }
+
+  @media only screen and (max-width: 600px) {
+    .w3-sidebar { display: none !important; }
+    #mobile-nav { display: flex !important; }
+    #main { margin-left: 0 !important; }
+    .section-content { padding: 80px 20px; }
+    .w3-jumbo { font-size: 32px !important; text-align: center; }
+    .lang-switch { top: 18px; right: 15px; z-index: 1000; }
+  }
+</style>
+</head>
+<body>
+
+<button type="button" class="lang-switch" onclick="toggleLanguage()" id="langBtn">ENG</button>
+
+<nav id="mobile-nav">
+  <a href="#" id="m-nav-home"><i class="fa fa-home"></i><br>ANASAYFA</a>
+  <a href="#about" id="m-nav-about"><i class="fa fa-user"></i><br>HAKKINDA</a>
+  <a href="#contact" id="m-nav-contact"><i class="fa fa-envelope"></i><br>İLETİŞİM</a>
+</nav>
+
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+  <a href="#" class="w3-bar-item w3-button w3-padding-large">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p><strong id="nav-home">ANASAYFA</strong></p>
+  </a>
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p><strong id="nav-about">HAKKINDA</strong></p>
+  </a>
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large">
+    <i class="fa fa-envelope w3-xxlarge"></i>
+    <p><strong id="nav-contact">İLETİŞİM</strong></p>
+  </a>
+</nav>
+
+<div id="main">
+  <header class="w3-container" id="home" style="min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+    <div style="text-align: center;">  
+      <h1 class="w3-jumbo" id="main-title">Ben, Soner Akça.</h1>
+      <p id="main-subtitle">computer programmer & software developer</p>
+    </div>
+  </header>
