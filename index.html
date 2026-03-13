@@ -19,196 +19,269 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css">
 
 <style>
-  /* --- KAYDIRMA ÇUBUĞU ÖZELLEŞTİRME --- */
-  ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-track { background: #000; }
-  ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; border: 2px solid #000; }
-  ::-webkit-scrollbar-thumb:hover { background: #555; }
-  * { scrollbar-width: thin; scrollbar-color: #333 #000; }
+  /* --- KAYDIRMA ÇUBUĞU (SCROLLBAR) ÖZELLEŞTİRME --- */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #000; }
+  ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; border: 2px solid #000; }
+  ::-webkit-scrollbar-thumb:hover { background: #555; }
+  * { scrollbar-width: thin; scrollbar-color: #333 #000; }
 
-  .lang-switch {
-    position: fixed; top: 20px; right: 20px; z-index: 1001; background: rgba(34, 34, 34, 0.7);
-    color: white; border: none; padding: 10px; cursor: pointer; border-radius: 5px;
-    display: flex; align-items: center; justify-content: center; transition: 0.3s;
-    backdrop-filter: blur(5px); width: 50px; height: 35px; outline: none;
-  }
-  .lang-switch:hover { background: rgba(255, 255, 255, 0.2); }
+  /* --- DİL BUTONU STİLİ (ÇERÇEVESİZ) --- */
+  .lang-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background: rgba(34, 34, 34, 0.7);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    backdrop-filter: blur(5px);
+    width: 50px;
+    height: 35px;
+    outline: none;
+  }
+  .lang-switch:hover { background: rgba(255, 255, 255, 0.2); }
+  .lang-switch i { font-size: 20px; }
 
-  html { scroll-behavior: smooth; overflow-x: hidden; }
-  body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+  .w3-sidebar .w3-bar-item:focus, .w3-sidebar .w3-bar-item:active { background-color: #000 !important; color: #fff !important; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+  body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
 
-  body {
-    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.png');
-    background-attachment: fixed; background-size: cover; background-position: center;
-    background-color: #000; color: #ccc; margin: 0;
-  }
-
-  .w3-sidebar {width: 120px;background: rgba(34, 34, 34, 0.9);position: fixed;height: 100%;z-index: 1;}
-  #main {margin-left: 120px;}
-  .section-content { padding: 100px 80px; max-width: 1100px; min-height: 100vh; }
-  .progress-bar { width: 0; height: 28px; transition: width 1.5s cubic-bezier(0.1, 0.5, 0.5, 1); }
-
-  .social-icons a, .contact-links a { text-decoration: none !important; color: inherit; transition: 0.3s; display: inline-block; }
-  .social-icons i, .contact-links i { font-size: 24px !important; width: 35px; text-align: center; }
-  .social-icons a { margin-right: 15px; }
-
-  /* Sosyal medya: Dokunmadım, eskisi gibi beyaz ve yukarı kayıyor */
-  .social-icons a:hover { color: #fff !important; transform: translateY(-3px); }
-
-  /* İletişim Linkleri: GitHub Linkiyle (w3-hover-text-grey) birebir aynı efekt */
-  .contact-links a:hover, .contact-links a:hover i { 
-    color: #9e9e9e !important; 
-    transform: none !important; 
+  body {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('background.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-color: #000;
+    color: #ccc;
+    margin: 0;
   }
 
-  @media only screen and (max-width: 600px) {
-    .w3-sidebar { display: none !important; }
-    #mobile-nav { display: flex !important; }
-    #main { margin-left: 0 !important; }
-    .section-content { padding: 80px 20px; }
-    .lang-switch { top: 70px; right: 10px; }
-  }
+  .w3-sidebar {width: 120px;background: rgba(34, 34, 34, 0.9);position: fixed;height: 100%;z-index: 1;}
+  #main {margin-left: 120px;}
+  .section-content { padding: 100px 80px; max-width: 1100px; min-height: 100vh; }
+  .progress-bar { width: 0; height: 28px; transition: width 1.5s cubic-bezier(0.1, 0.5, 0.5, 1); }
 
-  #mobile-nav {
-    display: none; position: fixed; top: 0; width: 100%; z-index: 999; background: #222;
-    justify-content: space-around; box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-  }
-  #mobile-nav a { padding: 15px 0; text-align: center; width: 33.33%; text-decoration: none; color: white; font-size: 12px; font-weight: bold; }
-  .w3-black { background-color: #000 !important; color: #fff !important; }
+  .social-icons a, .contact-links a { text-decoration: none !important; color: inherit; transition: 0.3s; display: inline-block; }
+  .social-icons i, .contact-links i { font-size: 24px !important; width: 35px; text-align: center; }
+  .social-icons a { margin-right: 15px; }
+  .social-icons a:hover, .contact-links a:hover { color: #9e9e9e !important; transform: translateY(-3px); }
+
+  @media only screen and (max-width: 600px) {
+    .w3-sidebar { display: none !important; }
+    #mobile-nav { display: flex !important; }
+    #main { margin-left: 0 !important; }
+    .section-content { padding: 80px 20px; }
+    .w3-jumbo { font-size: 30px !important; }
+    .lang-switch { top: 70px; right: 10px; }
+  }
+
+  #mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    background: #222;
+    justify-content: space-around;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  }
+  #mobile-nav a { padding: 15px 0; text-align: center; width: 33.33%; text-decoration: none; color: white; font-size: 12px; font-weight: bold; }
+  #mobile-nav a:hover { background-color: #444; }
+  .w3-sidebar a:hover, #mobile-nav a:hover { background-color: #000 !important; color: #fff !important; }
+  .w3-black { background-color: #000 !important; color: #fff !important; }
 </style>
 </head>
 <body>
 
 <button class="lang-switch" onclick="toggleLanguage()" id="langBtn">
-  <span id="langIcon" class="fi fi-tr"></span> 
+  <span id="langIcon" class="fi fi-tr"></span> 
 </button>
 
 <nav id="mobile-nav">
-  <a href="#"><i class="fa fa-home"></i><br><span data-key="nav-home">HOME</span></a>
-  <a href="#about"><i class="fa fa-user"></i><br><span data-key="nav-about">ABOUT</span></a>
-  <a href="#contact"><i class="fa fa-envelope"></i><br><span data-key="nav-contact">CONTACT</span></a>
+  <a href="#"><i class="fa fa-home"></i><br><span data-key="nav-home">HOME</span></a>
+  <a href="#about"><i class="fa fa-user"></i><br><span data-key="nav-about">ABOUT</span></a>
+  <a href="#contact"><i class="fa fa-envelope"></i><br><span data-key="nav-contact">CONTACT</span></a>
 </nav>
 
 <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <a href="#" class="w3-bar-item w3-button w3-padding-large" id="link-home">
-    <i class="fa fa-home w3-xxlarge"></i>
-    <p><strong data-key="nav-home">HOME</strong></p>
-  </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large" id="link-about">
-    <i class="fa fa-user w3-xxlarge"></i>
-    <p><strong data-key="nav-about">ABOUT</strong></p>
-  </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" id="link-contact">
-    <i class="fa fa-envelope w3-xxlarge"></i>
-    <p><strong data-key="nav-contact">CONTACT</strong></p>
-  </a>
+  <a href="#" class="w3-bar-item w3-button w3-padding-large" id="link-home">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p><strong data-key="nav-home">HOME</strong></p>
+  </a>
+  <a href="#about" class="w3-bar-item w3-button w3-padding-large" id="link-about">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p><strong data-key="nav-about">ABOUT</strong></p>
+  </a>
+  <a href="#contact" class="w3-bar-item w3-button w3-padding-large" id="link-contact">
+    <i class="fa fa-envelope w3-xxlarge"></i>
+    <p><strong data-key="nav-contact">CONTACT</strong></p>
+  </a>
 </nav>
 
 <div id="main">
-  <header class="w3-container" id="home" style="min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-    <div style="transform: translateY(-20px); text-align: center;">  
-      <h1 class="w3-jumbo" style="margin-bottom: 0;"><span data-key="hero-title">I'm Soner Akça.</span></h1>
-      <p style="margin-top: 5px;" data-key="hero-subtitle">computer programmer & software developer</p>
-    </div>
-  </header>
+  
+  <header class="w3-container" id="home" style="min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+    <div style="transform: translateY(-20px); text-align: center;">  
+      <h1 class="w3-jumbo" style="margin-bottom: 0;"><span data-key="hero-title">I'm Soner Akça.</span></h1>
+      <p style="margin-top: 5px;" data-key="hero-subtitle">computer programmer & software developer</p>
+    </div>
+  </header>
 
-  <div class="section-content w3-justify" id="about">
-    <h2 class="w3-text-light-grey" data-key="about-title">Soner Akça</h2>
-    <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
-    <p><strong data-key="about-text">Soner Akça was born on April 28, 1992, in Bafra, Samsun. Working in the fields of software, web, and graphic design, Soner develops creative and functional projects in the digital world by adopting a production process intertwined with technology. Particularly interested in modern web technologies, user experience, and visual design, Soner prioritizes both aesthetics and performance in his projects. By adopting an approach that values continuous learning and self-improvement, he closely follows innovations in the software world. His disciplined work ethic and passion for creation make him a developer who always aims for the better in the digital field.</strong></p>
-    
-    <h3 class="w3-padding-16 w3-text-light-grey" data-key="skills-title">My Experiences</h3>
-    <p class="w3-wide" data-key="skill-1">Software</p>
-    <div class="w3-grey"><div class="w3-white progress-bar" data-width="55%"></div></div>
-    <p class="w3-wide" data-key="skill-2">Web Design</p>
-    <div class="w3-grey"><div class="w3-white progress-bar" data-width="60%"></div></div>
-    <p class="w3-wide" data-key="skill-3">Graphic Design</p>
-    <div class="w3-grey"><div class="w3-white progress-bar" data-width="85%"></div></div>
-  </div>
+  <div class="section-content w3-justify" id="about">
+    <h2 class="w3-text-light-grey" data-key="about-title">Soner Akça</h2>
+    <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
+    <p><strong data-key="about-text">Soner Akça was born on April 28, 1992, in Bafra, Samsun. Working in the fields of software, web, and graphic design, Soner develops creative and functional projects in the digital world by adopting a production process intertwined with technology. Particularly interested in modern web technologies, user experience, and visual design, Soner prioritizes both aesthetics and performance in his projects. By adopting an approach that values continuous learning and self-improvement, he closely follows innovations in the software world. His disciplined work ethic and passion for creation make him a developer who always aims for the better in the digital field.</strong></p>
+    
+    <h3 class="w3-padding-16 w3-text-light-grey" data-key="skills-title">My Experiences</h3>
+    <p class="w3-wide" data-key="skill-1">Software</p>
+    <div class="w3-grey"><div class="w3-white progress-bar" data-width="55%"></div></div>
+    <p class="w3-wide" data-key="skill-2">Web Design</p>
+    <div class="w3-grey"><div class="w3-white progress-bar" data-width="60%"></div></div>
+    <p class="w3-wide" data-key="skill-3">Graphic Design</p>
+    <div class="w3-grey"><div class="w3-white progress-bar" data-width="85%"></div></div>
+  </div>
 
-  <div class="section-content" id="contact">
-    <h2 class="w3-text-light-grey" data-key="contact-title">Contact Me</h2>
-    <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
-    
-    <div class="w3-section contact-links">
-      <p>
-        <a href="mailto:ultrasoner55@hotmail.com">
-          <i class="fa fa-envelope fa-fw"></i> <span data-key="contact-mail">Send an email for your questions</span>
-        </a>
-      </p>
-      <p>
-        <a href="https://ultrasoner55.short.gy/whatsapp" target="_blank">
-          <i class="fa fa-whatsapp fa-fw"></i> <span data-key="contact-whatsapp">WhatsApp for quick reply</span>
-        </a>
-      </p>
-      <p>
-        <a href="https://www.google.com/maps/search/Samsun" target="_blank">
-          <i class="fa fa-map-marker fa-fw"></i> <span data-key="contact-location">Samsun, Turkey</span>
-        </a>
-      </p>
-    </div>
-    
-    <footer class="w3-padding-64">
-      <div class="social-icons w3-xlarge">
-        <a href="https://facebook.com/ultrasoner55" target="_blank"><i class="fa fa-facebook-official"></i></a>
-        <a href="https://twitter.com/ultrasoner55" target="_blank"><i class="fa fa-twitter"></i></a>
-        <a href="https://instagram.com/ultrasoner55" target="_blank"><i class="fa fa-instagram"></i></a>
-        <a href="https://youtube.com/ultrasoner55" target="_blank"><i class="fa fa-youtube-play"></i></a>
-      </div>
-      <p class="w3-medium w3-margin-top">
-        Powered by 
-        <a href="https://github.com/ultrasoner55" target="_blank" class="w3-hover-text-grey" style="text-decoration: none;">
-          <svg aria-hidden="true" height="18" viewBox="0 0 16 16" version="1.1" width="18" style="fill: currentColor; vertical-align: middle; margin-right: 4px;">
-            <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
-          </svg>GitHub</a>
-      </p>
-    </footer>
-  </div>
+  <div class="section-content" id="contact">
+    <h2 class="w3-text-light-grey" data-key="contact-title">Contact Me</h2>
+    <hr style="width:200px; border-top: 3px solid #ccc;" class="w3-opacity">
+    
+    <div class="w3-section contact-links">
+      <p>
+        <a href="mailto:ultrasoner55@hotmail.com">
+          <i class="fa fa-envelope fa-fw w3-text-white"></i> <span data-key="contact-mail">Send an email for your questions</span>
+        </a>
+      </p>
+      <p>
+        <a href="https://ultrasoner55.short.gy/whatsapp" target="_blank">
+          <i class="fa fa-whatsapp fa-fw w3-text-white"></i> <span data-key="contact-whatsapp">WhatsApp for quick reply</span>
+        </a>
+      </p>
+      <p>
+        <a href="https://www.google.com/maps/search/Samsun" target="_blank">
+          <i class="fa fa-map-marker fa-fw w3-text-white"></i> <span data-key="contact-location">Samsun, Turkey</span>
+        </a>
+      </p>
+    </div>
+    
+    <footer class="w3-padding-64">
+      <div class="social-icons w3-xlarge">
+        <a href="https://facebook.com/ultrasoner55" target="_blank"><i class="fa fa-facebook-official"></i></a>
+        <a href="https://twitter.com/ultrasoner55" target="_blank"><i class="fa fa-twitter"></i></a>
+        <a href="https://instagram.com/ultrasoner55" target="_blank"><i class="fa fa-instagram"></i></a>
+        <a href="https://youtube.com/ultrasoner55" target="_blank"><i class="fa fa-youtube-play"></i></a>
+      </div>
+      <p class="w3-medium w3-margin-top">
+        Powered by 
+        <a href="https://github.com/ultrasoner55" target="_blank" class="w3-hover-text-grey" style="text-decoration: none;">
+          <svg aria-hidden="true" height="18" viewBox="0 0 16 16" version="1.1" width="18" style="fill: currentColor; vertical-align: middle; margin-right: 4px;">
+            <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+          </svg>GitHub</a>
+      </p>
+    </footer>
+  </div>
 </div>
 
 <script>
-  const translations = {
-    'en': {
-      'nav-home': 'HOME', 'nav-about': 'ABOUT', 'nav-contact': 'CONTACT',
-      'hero-title': "I'm Soner Akça.", 'hero-subtitle': 'computer programmer & software developer',
-      'about-title': 'Soner Akça', 'about-text': 'Soner Akça was born on April 28, 1992, in Bafra, Samsun...',
-      'skills-title': 'My Experiences', 'skill-1': 'Software', 'skill-2': 'Web Design', 'skill-3': 'Graphic Design',
-      'contact-title': 'Contact Me', 'contact-mail': 'Send an email for your questions', 'contact-whatsapp': 'WhatsApp for quick reply', 'contact-location': 'Samsun, Turkey'
-    },
-    'tr': {
-      'nav-home': 'ANASAYFA', 'nav-about': 'HAKKINDA', 'nav-contact': 'İLETİŞİM',
-      'hero-title': 'Ben, Soner Akça.', 'hero-subtitle': 'bilgisayar programcısı & yazılım geliştirici',
-      'about-title': 'Soner Akça', 'about-text': 'Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur...',
-      'skills-title': 'Tecrüberim', 'skill-1': 'Yazılım', 'skill-2': 'Web Tasarım', 'skill-3': 'Grafik Tasarım',
-      'contact-title': 'Bana Ulaşın', 'contact-mail': 'Sorularınız için mail bırakın', 'contact-whatsapp': 'Hızlı cevap için WhatsApp', 'contact-location': 'Samsun, Türkiye'
-    }
-  };
-  let currentLang = 'en';
-  function toggleLanguage() {
-    const langIcon = document.getElementById('langIcon');
-    currentLang = currentLang === 'en' ? 'tr' : 'en';
-    langIcon.className = currentLang === 'tr' ? 'fi fi-gb' : 'fi fi-tr';
-    document.querySelectorAll('[data-key]').forEach(el => {
-      el.innerText = translations[currentLang][el.getAttribute('data-key')];
-    });
-  }
-  function updateMenu() {
-    var scrollPos = window.scrollY || document.documentElement.scrollTop;
-    var navLinks = document.querySelectorAll('.w3-sidebar a, #mobile-nav a');
-    var sections = [{ id: 'home', top: 0 }, { id: 'about', top: document.getElementById('about').offsetTop }, { id: 'contact', top: document.getElementById('contact').offsetTop }];
-    navLinks.forEach(link => link.classList.remove('w3-black'));
-    let currentId = 'home';
-    sections.forEach(section => { if (scrollPos >= section.top - 280) currentId = section.id; });
-    navLinks.forEach(link => { if (link.getAttribute('href') === '#' + currentId || (link.getAttribute('href') === '#' && currentId === 'home')) link.classList.add('w3-black'); });
-  }
-  function observeBars() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.style.width = entry.target.getAttribute('data-width'); observer.unobserve(entry.target); } });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.progress-bar').forEach(bar => observer.observe(bar));
-  }
-  window.addEventListener('scroll', updateMenu);
-  window.addEventListener('load', () => { updateMenu(); observeBars(); });
+  const translations = {
+    'en': {
+      'nav-home': 'HOME',
+      'nav-about': 'ABOUT',
+      'nav-contact': 'CONTACT',
+      'hero-title': "I'm Soner Akça.",
+      'hero-subtitle': 'computer programmer & software developer',
+      'about-title': 'Soner Akça',
+      'about-text': 'Soner Akça was born on April 28, 1992, in Bafra, Samsun. Working in the fields of software, web, and graphic design, Soner develops creative and functional projects in the digital world by adopting a production process intertwined with technology. Particularly interested in modern web technologies, user experience, and visual design, Soner prioritizes both aesthetics and performance in his projects. By adopting an approach that values continuous learning and self-improvement, he closely follows innovations in the software world. His disciplined work ethic and passion for creation make him a developer who always aims for the better in the digital field.',
+      'skills-title': 'My Experiences',
+      'skill-1': 'Software',
+      'skill-2': 'Web Design',
+      'skill-3': 'Graphic Design',
+      'contact-title': 'Contact Me',
+      'contact-mail': 'Send an email for your questions',
+      'contact-whatsapp': 'WhatsApp for quick reply',
+      'contact-location': 'Samsun, Turkey'
+    },
+    'tr': {
+      'nav-home': 'ANASAYFA',
+      'nav-about': 'HAKKINDA',
+      'nav-contact': 'İLETİŞİM',
+      'hero-title': 'Ben, Soner Akça.',
+      'hero-subtitle': 'bilgisayar programcısı & yazılım geliştirici',
+      'about-title': 'Soner Akça',
+      'about-text': 'Soner Akça, 28 Nisan 1992 tarihinde Samsun’un Bafra ilçesinde doğmuştur. Yazılım, web ve grafik tasarım alanlarında çalışan Soner, teknolojiyle iç içe bir üretim sürecini benimseyerek dijital dünyada yaratıcı ve işlevsel projeler geliştirmektedir. Modern web teknolojileri, kullanıcı deneyimi ve görsel tasarım konularına özel ilgi duyan Soner, projelerinde hem estetik hem de performansı ön planda tutar. Sürekli öğrenmeye ve kendini geliştirmeye önem veren bir yaklaşım benimseyerek yazılım dünyasındaki yenilikleri yakından takip eder. Disiplinli çalışma anlayışı ve üretme tutkusu, onu dijital alanda her zaman daha iyisini hedefleyen bir geliştirici haline getirmektedir.',
+      'skills-title': 'Tecrüberim',
+      'skill-1': 'Yazılım',
+      'skill-2': 'Web Tasarım',
+      'skill-3': 'Grafik Tasarım',
+      'contact-title': 'Bana Ulaşın',
+      'contact-mail': 'Sorularınız için mail bırakın',
+      'contact-whatsapp': 'Hızlı cevap için WhatsApp',
+      'contact-location': 'Samsun, Türkiye'
+    }
+  };
+
+  let currentLang = 'en';
+
+  function toggleLanguage() {
+    const langIcon = document.getElementById('langIcon');
+    
+    if (currentLang === 'en') {
+      currentLang = 'tr';
+      langIcon.className = 'fi fi-gb';
+    } else {
+      currentLang = 'en';
+      langIcon.className = 'fi fi-tr';
+    }
+    
+    document.querySelectorAll('[data-key]').forEach(el => {
+      const key = el.getAttribute('data-key');
+      el.innerText = translations[currentLang][key];
+    });
+  }
+
+  function updateMenu() {
+    var scrollPos = window.scrollY || document.documentElement.scrollTop;
+    var navLinks = document.querySelectorAll('.w3-sidebar a, #mobile-nav a');
+    var sections = [
+      { id: 'home', top: 0 },
+      { id: 'about', top: document.getElementById('about').offsetTop },
+      { id: 'contact', top: document.getElementById('contact').offsetTop }
+    ];
+
+    navLinks.forEach(link => link.classList.remove('w3-black'));
+    let currentId = 'home';
+    sections.forEach(section => { if (scrollPos >= section.top - 280) currentId = section.id; });
+
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (((href === '#' || href === '#home') && currentId === 'home') || href === '#' + currentId) {
+        link.classList.add('w3-black');
+      }
+    });
+  }
+
+  function observeBars() {
+    const bars = document.querySelectorAll('.progress-bar');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.width = entry.target.getAttribute('data-width');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    bars.forEach(bar => observer.observe(bar));
+  }
+
+  window.addEventListener('scroll', updateMenu);
+  window.addEventListener('load', () => { updateMenu(); observeBars(); });
 </script>
 </body>
 </html>
