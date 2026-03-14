@@ -10,11 +10,11 @@ Soner Akça was born on April 28, 1992, in Bafra, Samsun. Working in the fields 
 
 **My Experiences**
 
-・Software ![Progress Bar](https://geps.dev/progress/55?dangerColor=808080&warningColor=808080&successColor=808080)
+・Software
 
-・Web Design ![Progress Bar](https://geps.dev/progress/60?dangerColor=808080&warningColor=808080&successColor=808080)
+・Web Design
 
-・Graphic Design ![Progress Bar](https://geps.dev/progress/85?dangerColor=808080&warningColor=808080&successColor=808080)
+・Graphic Design
 
 
 
