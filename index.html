@@ -283,6 +283,8 @@
   // ===== MOBİL NAV SCROLL GÜNCELLEME =====
   function updateMobileNav() {
     var scrollPos = window.scrollY || document.documentElement.scrollTop;
+    var windowHeight = window.innerHeight;
+    var docHeight = document.documentElement.scrollHeight;
     var about = document.getElementById('about');
     var contact = document.getElementById('contact');
     if (!about || !contact) return;
@@ -293,8 +295,14 @@
     ];
     mnavLinks.forEach(function(a) { if (a) a.classList.remove('w3-black'); });
     var currentId = 0;
-    if (scrollPos >= contact.offsetTop - 100) currentId = 2;
-    else if (scrollPos >= about.offsetTop - 100) currentId = 1;
+    // Sayfanın en altına gelindiyse her zaman contact aktif
+    if (scrollPos + windowHeight >= docHeight - 5) {
+      currentId = 2;
+    } else if (scrollPos >= contact.getBoundingClientRect().top + scrollPos - 100) {
+      currentId = 2;
+    } else if (scrollPos >= about.getBoundingClientRect().top + scrollPos - 100) {
+      currentId = 1;
+    }
     if (mnavLinks[currentId]) mnavLinks[currentId].classList.add('w3-black');
   }
   window.addEventListener('scroll', updateMobileNav);
