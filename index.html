@@ -80,91 +80,13 @@
   }
   #mobile-nav a:hover, #mobile-nav a.w3-black { background-color: #000 !important; color: #fff !important; }
 
-  /* ===== MOBİL SWIPE WRAPPER ===== */
-  #swipe-wrapper {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 1;
-  }
-  #swipe-track {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    width: 300%;
-    height: 100%;
-    -webkit-transition: -webkit-transform 0.4s ease;
-    transition: transform 0.4s ease;
-  }
-  .swipe-page {
-    width: 33.3333%;
-    min-width: 33.3333%;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    box-sizing: border-box;
-  }
-  .swipe-page-inner {
-    padding: 70px 20px 70px;
-    min-height: 100%;
-    box-sizing: border-box;
-  }
-  .swipe-page-inner.home-inner {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    min-height: 100vh;
-    text-align: center;
-  }
-
-  /* ===== NOKTA GÖSTERGESİ ===== */
-  #swipe-dots {
-    display: none;
-    position: fixed;
-    bottom: 16px;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%);
-    z-index: 2000;
-    gap: 8px;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
-  #swipe-dots span {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.3);
-    display: inline-block;
-    margin: 0 4px;
-    -webkit-transition: background 0.3s;
-    transition: background 0.3s;
-  }
-  #swipe-dots span.active { background: #fff; }
-
   /* ===== MOBİL MEDIA QUERY ===== */
   @media only screen and (max-width: 600px) {
     .w3-sidebar { display: none !important; }
     #mobile-nav { display: -webkit-box !important; display: -ms-flexbox !important; display: flex !important; }
-    #main { display: none !important; }
-    #swipe-wrapper { display: block !important; }
-    #swipe-dots { display: -webkit-box !important; display: -ms-flexbox !important; display: flex !important; }
+    #main { display: block !important; margin-left: 0 !important; }
+    .section-content { padding: 70px 20px 40px !important; min-height: auto !important; }
+    #home { min-height: auto !important; padding: 80px 20px 40px !important; }
     .w3-jumbo { font-size: 30px !important; }
     .lang-switch { top: 70px; right: 10px; }
   }
@@ -179,9 +101,9 @@
 
 <!-- Mobil üst nav -->
 <nav id="mobile-nav">
-  <a href="#" id="mnav-0"><i class="fa fa-home"></i><br><span data-key="nav-home">HOME</span></a>
-  <a href="#" id="mnav-1"><i class="fa fa-user"></i><br><span data-key="nav-about">ABOUT</span></a>
-  <a href="#" id="mnav-2"><i class="fa fa-envelope"></i><br><span data-key="nav-contact">CONTACT</span></a>
+  <a href="#home" id="mnav-0"><i class="fa fa-home"></i><br><span data-key="nav-home">HOME</span></a>
+  <a href="#about" id="mnav-1"><i class="fa fa-user"></i><br><span data-key="nav-about">ABOUT</span></a>
+  <a href="#contact" id="mnav-2"><i class="fa fa-envelope"></i><br><span data-key="nav-contact">CONTACT</span></a>
 </nav>
 
 <!-- Masaüstü sol sidebar -->
@@ -203,7 +125,7 @@
 <!-- ===== MASAÜSTÜ İÇERİK ===== -->
 <div id="main">
   <header class="w3-container" id="home" style="min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
-    <div style="transform: translateY(-20px); text-align: center;">
+    <div style="text-align: center;">
       <h1 class="w3-jumbo" style="margin-bottom: 0;"><span data-key="hero-title">I'm Soner Akça.</span></h1>
       <p style="margin-top: 5px;" data-key="hero-subtitle">computer programmer & software developer</p>
     </div>
@@ -249,72 +171,6 @@
   </div>
 </div>
 
-<!-- ===== MOBİL SWIPE WRAPPER ===== -->
-<div id="swipe-wrapper">
-  <div id="swipe-track">
-
-    <!-- SAYFA 1: HOME -->
-    <div class="swipe-page">
-      <div class="swipe-page-inner home-inner">
-        <div style="transform: translateY(-20px);">
-          <h1 class="w3-jumbo" style="margin-bottom:0;"><span data-key="hero-title-m">I'm Soner Akça.</span></h1>
-          <p style="margin-top:5px;" data-key="hero-subtitle-m">computer programmer & software developer</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- SAYFA 2: ABOUT -->
-    <div class="swipe-page">
-      <div class="swipe-page-inner">
-        <h2 class="w3-text-light-grey" data-key="about-title-m">Soner Akça</h2>
-        <hr style="width:200px; border-top:3px solid #ccc;" class="w3-opacity">
-        <p><strong data-key="about-text-m">Soner Akça was born on April 28, 1992, in Bafra, Samsun. Working in the fields of software, web, and graphic design, Soner develops creative and functional projects in the digital world by adopting a production process intertwined with technology. Particularly interested in modern web technologies, user experience, and visual design, Soner prioritizes both aesthetics and performance in his projects. By adopting an approach that values continuous learning and self-improvement, he closely follows innovations in the software world. His disciplined work ethic and passion for creation make him a developer who always aims for the better in the digital field.</strong></p>
-        <h3 class="w3-padding-16 w3-text-light-grey" data-key="skills-title-m">My Experiences</h3>
-        <p class="w3-wide" data-key="skill-1-m">Software</p>
-        <div class="w3-grey"><div class="w3-white progress-bar" data-width="55%"></div></div>
-        <p class="w3-wide" data-key="skill-2-m">Web Design</p>
-        <div class="w3-grey"><div class="w3-white progress-bar" data-width="60%"></div></div>
-        <p class="w3-wide" data-key="skill-3-m">Graphic Design</p>
-        <div class="w3-grey"><div class="w3-white progress-bar" data-width="85%"></div></div>
-      </div>
-    </div>
-
-    <!-- SAYFA 3: CONTACT -->
-    <div class="swipe-page">
-      <div class="swipe-page-inner">
-        <h2 class="w3-text-light-grey" data-key="contact-title-m">Contact Me</h2>
-        <hr style="width:200px; border-top:3px solid #ccc;" class="w3-opacity">
-        <div class="w3-section contact-links">
-          <p><a href="mailto:ultrasoner55@hotmail.com"><i class="fa fa-envelope fa-fw w3-text-white"></i> <span data-key="contact-mail-m">Send an email for your questions</span></a></p>
-          <p><a href="https://ultrasoner55.short.gy/whatsapp" target="_blank"><i class="fa fa-whatsapp fa-fw w3-text-white"></i> <span data-key="contact-whatsapp-m">WhatsApp for quick reply</span></a></p>
-          <p><a href="https://www.google.com/maps/search/Samsun" target="_blank"><i class="fa fa-map-marker fa-fw w3-text-white"></i> <span data-key="contact-location-m">Samsun, Turkey</span></a></p>
-        </div>
-        <div style="margin-top: 30px;">
-          <div class="social-icons w3-xlarge">
-            <a href="https://facebook.com/ultrasoner55" target="_blank"><i class="fa fa-facebook-official"></i></a>
-            <a href="https://twitter.com/ultrasoner55" target="_blank"><i class="fa fa-twitter"></i></a>
-            <a href="https://instagram.com/ultrasoner55" target="_blank"><i class="fa fa-instagram"></i></a>
-            <a href="https://youtube.com/ultrasoner55" target="_blank"><i class="fa fa-youtube-play"></i></a>
-          </div>
-          <p class="w3-medium w3-margin-top">
-            Powered by
-            <a href="https://github.com/ultrasoner55" target="_blank" class="w3-hover-text-grey" style="text-decoration:none;">
-              <svg aria-hidden="true" height="18" viewBox="0 0 16 16" version="1.1" width="18" style="fill:currentColor; vertical-align:middle; margin-right:4px;"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>GitHub
-            </a>
-          </p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- Nokta göstergesi -->
-<div id="swipe-dots">
-  <span class="active"></span>
-  <span></span>
-  <span></span>
-</div>
 
 <script>
   // ===== ÇEVİRİLER =====
@@ -412,74 +268,26 @@
   window.addEventListener('scroll', updateMenu);
   window.addEventListener('load', function() { updateMenu(); observeBars(); });
 
-  // ===== MOBİL SWIPE =====
-  (function() {
-    var currentPage = 0;
-    var totalPages = 3;
-    var touchStartX = 0;
-    var touchStartY = 0;
-    var touchEndX = 0;
-    var touchEndY = 0;
-    var track = document.getElementById('swipe-track');
-    var dots = document.querySelectorAll('#swipe-dots span');
+  // ===== MOBİL NAV SCROLL GÜNCELLEME =====
+  function updateMobileNav() {
+    var scrollPos = window.scrollY || document.documentElement.scrollTop;
+    var about = document.getElementById('about');
+    var contact = document.getElementById('contact');
+    if (!about || !contact) return;
     var mnavLinks = [
       document.getElementById('mnav-0'),
       document.getElementById('mnav-1'),
       document.getElementById('mnav-2')
     ];
+    mnavLinks.forEach(function(a) { if (a) a.classList.remove('w3-black'); });
+    var currentId = 0;
+    if (scrollPos >= contact.offsetTop - 100) currentId = 2;
+    else if (scrollPos >= about.offsetTop - 100) currentId = 1;
+    if (mnavLinks[currentId]) mnavLinks[currentId].classList.add('w3-black');
+  }
+  window.addEventListener('scroll', updateMobileNav);
+  window.addEventListener('load', updateMobileNav);
 
-    function goToPage(idx) {
-      if (idx < 0 || idx >= totalPages) return;
-      currentPage = idx;
-      track.style.webkitTransform = 'translateX(-' + (currentPage * 33.3333) + '%)';
-      track.style.transform = 'translateX(-' + (currentPage * 33.3333) + '%)';
-
-      dots.forEach(function(d, i) { d.classList.toggle('active', i === currentPage); });
-      mnavLinks.forEach(function(a, i) {
-        if (a) a.classList.toggle('w3-black', i === currentPage);
-      });
-
-      // About sayfasındaki progress barları tetikle
-      if (currentPage === 1) {
-        setTimeout(function() {
-          document.querySelectorAll('#swipe-track .progress-bar').forEach(function(bar) {
-            bar.style.width = bar.getAttribute('data-width');
-          });
-        }, 200);
-      }
-    }
-
-    // Nav linkleri
-    mnavLinks.forEach(function(link, i) {
-      if (!link) return;
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        goToPage(i);
-      });
-    });
-
-    // Touch
-    document.addEventListener('touchstart', function(e) {
-      touchStartX = e.changedTouches[0].screenX;
-      touchStartY = e.changedTouches[0].screenY;
-    }, { passive: true });
-
-    document.addEventListener('touchend', function(e) {
-      touchEndX = e.changedTouches[0].screenX;
-      touchEndY = e.changedTouches[0].screenY;
-      var dx = touchEndX - touchStartX;
-      var dy = touchEndY - touchStartY;
-      // Yatay swipe: x hareketi y'den büyük ve 50px üzeri
-      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
-        if (dx < 0) goToPage(currentPage + 1);
-        else goToPage(currentPage - 1);
-      }
-    }, { passive: true });
-
-    window.addEventListener('load', function() {
-      goToPage(0);
-    });
-  })();
 </script>
 </body>
 </html>
