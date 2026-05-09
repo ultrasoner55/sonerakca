@@ -86,7 +86,12 @@
     #mobile-nav { display: -webkit-box !important; display: -ms-flexbox !important; display: flex !important; }
     #main { display: block !important; margin-left: 0 !important; }
     .section-content { padding: 70px 20px 40px !important; min-height: auto !important; }
-    #home { min-height: auto !important; padding: 80px 20px 40px !important; }
+    #home {
+      min-height: 100vh !important;
+      min-height: calc(var(--vh, 1vh) * 100) !important;
+      padding: 0 20px !important;
+      box-sizing: border-box !important;
+    }
     .w3-jumbo { font-size: 30px !important; }
     .lang-switch { top: 70px; right: 10px; }
   }
@@ -170,7 +175,6 @@
     </footer>
   </div>
 </div>
-
 
 <script>
   // ===== ÇEVİRİLER =====
@@ -267,6 +271,14 @@
 
   window.addEventListener('scroll', updateMenu);
   window.addEventListener('load', function() { updateMenu(); observeBars(); });
+
+  // ===== MOBİL VH DÜZELTMESİ =====
+  function setVh() {
+    var vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', vh + 'px');
+  }
+  setVh();
+  window.addEventListener('resize', setVh);
 
   // ===== MOBİL NAV SCROLL GÜNCELLEME =====
   function updateMobileNav() {
